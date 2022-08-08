@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/fishberries/static/css/main.6d7e74b8.css",
-    "main.js": "/fishberries/static/js/main.862d3739.js",
+    "main.js": "/fishberries/static/js/main.556a1192.js",
     "static/media/main-bg.png": "/fishberries/static/media/main-bg.b6d1650e47edbae30438.png",
     "static/media/days-one.regular.ttf": "/fishberries/static/media/days-one.regular.ac0dc3db5e2a5eea68db.ttf",
     "static/media/DaysOne-Regular.woff": "/fishberries/static/media/DaysOne-Regular.3756cef6b7f6a5ba6534.woff",
@@ -14,10 +14,10 @@
     "index.html": "/fishberries/index.html",
     "static/media/filter-arrow.svg": "/fishberries/static/media/filter-arrow.6ca81fa3998afc4bced1.svg",
     "main.6d7e74b8.css.map": "/fishberries/static/css/main.6d7e74b8.css.map",
-    "main.862d3739.js.map": "/fishberries/static/js/main.862d3739.js.map"
+    "main.556a1192.js.map": "/fishberries/static/js/main.556a1192.js.map"
   },
   "entrypoints": [
     "static/css/main.6d7e74b8.css",
-    "static/js/main.862d3739.js"
+    "static/js/main.556a1192.js"
   ]
 }
