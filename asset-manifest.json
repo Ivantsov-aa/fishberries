@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/fishberries/static/css/main.6d7e74b8.css",
+    "main.js": "/fishberries/static/js/main.180db167.js",
+    "static/media/main-bg.png": "/fishberries/static/media/main-bg.b6d1650e47edbae30438.png",
+    "static/media/days-one.regular.ttf": "/fishberries/static/media/days-one.regular.ac0dc3db5e2a5eea68db.ttf",
+    "static/media/DaysOne-Regular.woff": "/fishberries/static/media/DaysOne-Regular.3756cef6b7f6a5ba6534.woff",
+    "static/media/days-one.regular.woff2": "/fishberries/static/media/days-one.regular.7ef5823cecb25c216d4f.woff2",
+    "static/media/icon-map.svg": "/fishberries/static/media/icon-map.0e5b94f154c4026cfd27.svg",
+    "static/media/icon-likes.svg": "/fishberries/static/media/icon-likes.9c1e4176f87a01ce8892.svg",
+    "static/media/icon-mail.svg": "/fishberries/static/media/icon-mail.25a50be51bc332ad0db9.svg",
+    "static/media/filter-cloce-icon.svg": "/fishberries/static/media/filter-cloce-icon.dfc3510fbd5591f08188.svg",
+    "static/media/filter-arrow-gold.svg": "/fishberries/static/media/filter-arrow-gold.298102f62b44772efa2e.svg",
+    "index.html": "/fishberries/index.html",
+    "static/media/filter-arrow.svg": "/fishberries/static/media/filter-arrow.6ca81fa3998afc4bced1.svg",
+    "main.6d7e74b8.css.map": "/fishberries/static/css/main.6d7e74b8.css.map",
+    "main.180db167.js.map": "/fishberries/static/js/main.180db167.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6d7e74b8.css",
+    "static/js/main.180db167.js"
+  ]
+}
