@@ -1,0 +1,336 @@
+main {
+    .main__title-wrapper {
+        background: url('../../../public/images/main/main-bg.png') no-repeat center;
+        background-size: cover;
+
+        .main__title {
+            padding: 165.5px 0 187.5px;
+            @include block-pos;
+            color: $link_color;
+
+            h1 {
+                @include font-params (400, 48px, 61px, 0.016em);
+                margin-bottom: 15px;
+            }
+
+            p {
+                @include font-params (400, 24px, 33px, 0.05em);
+                margin-bottom: 15px;
+            }
+
+            >div {
+                width: 967px;
+                position: relative;
+
+                input {
+                    width: 967px;
+                    height: 63px;
+                    border-radius: 10px;
+                    border: 1px solid #204BDB;
+                    padding-left: 18px;
+                    @include font-params (700, 18px, 25px, 0.05em);
+
+                    &::placeholder {
+                        color: #A0ABC0;
+                    }
+                }
+
+                button {
+                    position: absolute;
+                    right: 0;
+                    width: 130px;
+                    height: 63px;
+                    background: #204BDB;
+                    @include font-params (700, 18px, 25px, 0.05em);
+                    color: #fff;
+                    border-radius: 0 10px 10px 0;
+                }
+            }
+        }
+    }
+
+    .main__fishing-places {
+        padding: 43px 0 46px;
+        @include block-pos;
+        text-align: center;
+
+        .fishing-places__title {
+            @include flex-params (row, space-between, center);
+            margin-bottom: 43px;
+
+            >button {
+                color: $link_color;
+                font-family: 'Days One', sans-serif;
+                @include font-params (400, 18px, 23px, 0.016em);
+                text-decoration: underline;
+
+                &.filter-button {
+                    &.open {
+                        position: relative;
+
+                        &::after {
+                            position: absolute;
+                            content: '';
+                            display: inline-block;
+                            bottom: 5px;
+                            right: -24px;
+                            width: 14px;
+                            height: 14px;
+                            background: url('../../../public/images/main/filter-cloce-icon.svg') no-repeat center;
+                        }
+                    }
+                }
+            }
+
+            h2 {
+                @include font-params (400, 40px, 51px, 0.016em);
+                color: $link_color;
+            }
+
+            >div {
+                display: flex;
+
+                .filter-arrow {
+                    width: 24px;
+                    height: 24px;
+                    background: url('../../../public/images/main/filter-arrow.svg') no-repeat center;
+                    margin-right: 10px;
+
+                    &.down {
+                        transform: rotate(180deg);
+                    }
+                }
+
+                p {
+                    color: $link_color;
+                    font-family: 'Days One', sans-serif;
+                    @include font-params (400, 18px, 23px, 0.016em);
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        .fishing-places__list {
+            text-align: start;
+            @include flex-params (row, space-between, flex-start);
+
+            .fishing-places__filter {
+                padding: 15px;
+                border: 1px solid #CBD2E0;
+                border-radius: 10px;
+                margin-right: 20px;
+
+                .filter-category {
+                    font-family: 'Days One', sans-serif;
+                    color: #FC8000;
+                    margin-bottom: 10px;
+                    @include font-params (400, 18px, 23px, 0.016em);
+                    width: 292px;
+                    position: relative;
+                    cursor: pointer;
+
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        display: inline-block;
+                        width: 24px;
+                        height: 24px;
+                        background: url('../../../public/images/main/filter-arrow-gold.svg') no-repeat center;
+                    }
+                }
+
+                .filter-subcategory {
+                    padding-left: 22px;
+                    @include font-params (700, 18px, 25px, 0.016em);
+                    color: $link_color;
+                    margin-bottom: 10px;
+                    position: relative;
+                    width: 270px;
+
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        right: -22px;
+                        display: inline-block;
+                        width: 24px;
+                        height: 24px;
+                        background: url('../../../public/images/main/filter-arrow.svg') no-repeat center;
+                        transform: rotate(180deg);
+                    }
+                }
+            }
+
+            .fishing-place__cart {
+                @include flex-params (row, space-between, top);
+                padding: 15px;
+                border: 1px solid #CBD2E0;
+                border-radius: 10px;
+                margin-bottom: 10px;
+                color: $link_color;
+
+                &:last-child {
+                    margin-bottom: 55px;
+                }
+
+                >div {
+                    margin-right: 10px;
+                    @include flex-params (column, space-between, left);
+
+                    &.fishing-place__pic {
+                        height: 228px;
+                        margin-right: 20px;
+                    }
+
+                    &.fishing-place__desc {
+                        max-width: 252px;
+
+                        h3 {
+                            @include font-params (400, 20px, 25px, 0.016em);
+                            font-family: 'Days One', sans-serif;
+                            margin-bottom: 13.5px;
+                        }
+
+                        p {
+                            margin-bottom: 13.5px;
+                        }
+
+                        h4 {
+                            margin-bottom: 13.5px;
+                            text-decoration: underline;
+                        }
+
+                        .desc_footer {
+                            @include flex-params (row, space-between, center);
+
+                            .likes-count {
+                                @include font-params (900, 16px, 22px, 0.05em);
+
+                                &::before {
+                                    content: '';
+                                    display: inline-block;
+                                    width: 24px;
+                                    height: 24px;
+                                    background: url('../../../public/images/main/icon-likes.svg') no-repeat center;
+                                    vertical-align: middle;
+                                    margin-right: 5px;
+                                }
+                            }
+
+                            .rating-wrapper {
+                                display: flex;
+                                align-items: center;
+
+                                .rating {
+                                    @include font-params (900, 16px, 22px, 0.05em);
+                                    margin-right: 10px;
+                                    width: 75px;
+                                    text-align: end;
+                                }
+
+                                .rating-count {
+                                    font-family: 'Days One', sans-serif;
+                                    @include font-params (900, 48px, 61px, 0.016em);
+                                    color: #FC8000;
+                                }
+                            }
+                        }
+                    }
+
+                    &.fishing-place__types {
+                        justify-content: flex-start;
+                        background: #EDF0F7;
+                        border-radius: 10px;
+                        padding: 22px 11px;
+
+                        h3 {
+                            @include font-params (400, 20px, 25px, 0.016em);
+                            font-family: 'Days One', sans-serif;
+                            margin-bottom: 5px;
+                        }
+
+                        p {
+                            @include font-params (900, 16px, 22px, 0.05em);
+                        }
+                    }
+
+                    &.fishing-place__details {
+                        margin-right: 0;
+                        align-items: center;
+
+                        button {
+                            &:first-child {
+                                background-color: #FC8000;
+                                border-radius: 10px;
+                                color: #fff;
+                                width: 163px;
+                                height: 63px;
+                                @include font-params (700, 18px, 25px, 0.05em);
+                            }
+
+                            &:last-child {
+                                @include font-params (900, 16px, 20px, 0.05em);
+                                color: $link_color;
+                                text-decoration: underline;
+                                text-align: end;
+                                display: flex;
+                                width: 141px;
+
+                                &::after {
+                                    content: '';
+                                    display: block;
+                                    width: 115px;
+                                    height: 44px;
+                                    background: url('../../../public/images/main/icon-map.svg') no-repeat center;
+                                }
+                            }
+                        }
+
+                        .work-time {
+                            text-align: center;
+                            @include font-params (400, 16px, 22px, 0.05em);
+
+                            span {
+                                display: block;
+                                @include font-params (900, 16px, 22px, 0.05em);
+
+                            }
+                        }
+
+                        .price {
+                            @include font-params (900, 24px, 33px, 0.05em);
+                            color: #FC8000;
+                        }
+                    }
+                }
+            }
+        }
+
+        .show-more {
+            width: 225px;
+            height: 63px;
+            background: #204BDB;
+            border-radius: 10px;
+            color: #fff;
+            @include font-params (700, 18px, 25px, 0.05em);
+        }
+    }
+
+    .main__map {
+        text-align: center;
+
+        h2 {
+            @include font-params (400, 40px, 51px, 0.016em);
+            color: $link_color;
+            margin: 43px 0;
+        }
+
+        .map__wrapper {
+            width: 1920px;
+            height: 700px;
+
+        }
+    }
+}

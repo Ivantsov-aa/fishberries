@@ -1,0 +1,85 @@
+header {
+
+    .header__mail-row {
+        background: #DB0BC0;
+        color: #fff;
+
+        p {
+            @include block-pos;
+            @include flex-params (row, right, center);
+            @include font-params (700, 20px, 150%, 0.05em);
+
+            &::before {
+                content: '';
+                display: inline-block;
+                width: 24px;
+                height: 24px;
+                background: url('../../../public/images/header/icon-mail.svg') center no-repeat;
+                margin-right: 5px;
+            }
+        }
+    }
+
+    .header__nav {
+        @include block-pos;
+        @include flex-params (row, space-between, center);
+        padding: 24px 0 32px;
+
+        .logo {
+            display: flex;
+
+            img {
+                width: 74px;
+                margin-right: 10px;
+            }
+
+            h2 {
+                color: #204BDB;
+                @include font-params (400, 40px, 120%, 0.01em);
+
+                span {
+                    color: #DB0BC0;
+                }
+            }
+        }
+
+        nav {
+            ul {
+                display: flex;
+
+                li {
+                    margin-right: 30px;
+
+                    a {
+                        @include font-params (700, 24px, 150%, 0.05em);
+                    }
+
+                    &:last-child {
+                        margin-right: 0;
+                    }
+                }
+            }
+        }
+
+        .header_buttons {
+            button {
+                @include font-params (700, 18px, 25px, 0.05em);
+                letter-spacing: 0.05em;
+                color: #221F63;
+                border-radius: 10px;
+
+                &.authorization {
+                    border: 1px solid #221F63;
+                    padding: 19px 48.5px;
+                    margin-right: 19px;
+                }
+
+                &.registration {
+                    padding: 19px 30px;
+                    background-color: #204BDB;
+                    color: #fff;
+                }
+            }
+        }
+    }
+}

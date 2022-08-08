@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+h1,
+h2 {
+    font-family: 'Days One', sans-serif;
+
+    span {
+        font-family: 'Days One', sans-serif;
+
+    }
+}
+
+a {
+    text-decoration: none;
+    color: $link_color;
+}
+
+ul {
+    list-style-type: none;
+}
+
+button {
+    outline: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+input {
+    outline: none;
+}

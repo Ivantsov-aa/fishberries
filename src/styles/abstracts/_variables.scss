@@ -1,0 +1,30 @@
+$link_color: #221F63;
+
+@mixin block-pos {
+    max-width: 1302px;
+    margin: auto;
+}
+
+// @mixin block-pos-laptop {
+//     max-width: 924px;
+//     margin: 0 auto auto;
+// }
+
+// @mixin block-pos-mobile {
+//     max-width: 330px;
+//     margin: 0 auto auto;
+// }
+
+@mixin font-params ($weight, $size, $line-height, $spacing) {
+    font-weight: $weight;
+    font-size: $size; 
+    line-height: $line-height;
+    letter-spacing: $spacing;  
+}
+
+@mixin flex-params ($direction, $justify, $align) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
