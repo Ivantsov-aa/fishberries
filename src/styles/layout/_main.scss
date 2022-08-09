@@ -260,31 +260,28 @@ main {
                         margin-right: 0;
                         align-items: center;
 
+                        a {
+                            background-color: #FC8000;
+                            border-radius: 10px;
+                            color: #fff;
+                            padding: 19px 28px;
+                            @include font-params (700, 18px, 25px, 0.05em);
+                        }
+
                         button {
-                            &:first-child {
-                                background-color: #FC8000;
-                                border-radius: 10px;
-                                color: #fff;
-                                width: 163px;
-                                height: 63px;
-                                @include font-params (700, 18px, 25px, 0.05em);
-                            }
+                            @include font-params (900, 16px, 20px, 0.05em);
+                            color: $link_color;
+                            text-decoration: underline;
+                            text-align: end;
+                            display: flex;
+                            width: 141px;
 
-                            &:last-child {
-                                @include font-params (900, 16px, 20px, 0.05em);
-                                color: $link_color;
-                                text-decoration: underline;
-                                text-align: end;
-                                display: flex;
-                                width: 141px;
-
-                                &::after {
-                                    content: '';
-                                    display: block;
-                                    width: 115px;
-                                    height: 44px;
-                                    background: url('../../../public/images/main/icon-map.svg') no-repeat center;
-                                }
+                            &::after {
+                                content: '';
+                                display: block;
+                                width: 115px;
+                                height: 44px;
+                                background: url('../../../public/images/main/icon-map.svg') no-repeat center;
                             }
                         }
 
@@ -328,9 +325,72 @@ main {
         }
 
         .map__wrapper {
-            width: 1920px;
+            width: 100%;
             height: 700px;
 
         }
     }
+}
+
+// Просмотреть
+.placemark-container {
+    display: flex;
+    background: #fff;
+    width: 258px;
+    border-radius: 68px 5px 5px 68px;
+
+    img {
+        width: 68px;
+        height: 68px;
+        margin-right: 8px;
+    }
+
+    .placemark-description {
+        padding: 2.5px 0 7.5px;
+
+        p {
+            font-family: 'Days One', sans-serif;
+            @include font-params (400, 20px, 25px, 0.016em);
+            color: $link_color;
+            margin-bottom: 7px;
+            text-align: start;
+
+            &:last-child {
+                margin-bottom: 0;
+                font-family: 'Nunito Sans', sans-serif;
+                @include font-params (900, 16px, 22px, 0.05em);
+
+                &::before {
+                    content: '';
+                    display: inline-block;
+                    width: 24px;
+                    height: 24px;
+                    background: url('../../../public/images/main/icon-likes.svg') no-repeat center;
+                    vertical-align: middle;
+                }
+
+                span {
+                    @include font-params (900, 24px, 33px, 0.05em);
+                    margin-left: 17px;
+                    color: #FC8000;
+                }
+            }
+        }
+    }
+
+    .balloon-container {
+        width: 311px;
+        height: 188px;
+        border: 1px solid #CBD2E0;
+        box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.05);
+        border-radius: 10px;
+
+        h2 {
+            font-family: 'Days One', sans-serif;
+            @include font-params (400, 20px, 25px, 0.016em);
+        }
+    }
+
+    //
+
 }

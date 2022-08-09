@@ -10,7 +10,7 @@ class Header extends React.Component {
                 </div>
                 <div className='header__nav'>
                     <Link to='/' className='logo'>
-                        <img src='images/header/main-logo.svg' alt='logo' />
+                        <img src='/images/header/main-logo.svg' alt='logo' />
                         <h2>Fish<span>berries</span></h2>
                     </Link>
                     <nav>
