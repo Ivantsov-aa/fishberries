@@ -222,13 +222,13 @@ class PlaceCart extends React.Component {
                         </div>
                         <h2>Отзывы</h2>
                     </div>
-                    <div className='comments__wrapper'>
+                    <div className='reviews__wrapper'>
                         {placeToCart.comments.map((comment, i) => (
-                            <div className='comment__container' key={i}>
+                            <div className='review__container' key={i}>
                                 <div className='user-photo'>
                                     <img src={comment.photo} alt='user' />
                                 </div>
-                                <div className='comment__details'>
+                                <div className='review__details'>
                                     <Rating
                                         emptySymbol={<img src='/images/main/icon-empty-rating.svg' alt='rating-star' />}
                                         placeholderSymbol={<img src='/images/main/icon-active-rating.svg' alt="rating-star" />}
@@ -236,7 +236,7 @@ class PlaceCart extends React.Component {
                                         placeholderRating={comment.rating}
                                         readonly
                                     />
-                                    <p className='comment-text'>{comment.text}</p>
+                                    <p className='review-text'>{comment.re}</p>
                                     <p className='user-name'>{comment.userName}<span>{comment.date}</span></p>
                                     <div className='details__footer'>
                                         <div>
@@ -250,6 +250,19 @@ class PlaceCart extends React.Component {
                         ))}
                     </div>
                     <button className='show-more'>Показать ещё</button>
+                </section>
+                <section className='comments__wrapper'>
+                    <div className='comments_title'>
+                        <h2>Комментарии</h2>
+                        <div>
+                            <button className='filter-arrow up'></button>
+                            <button className='filter-arrow down'></button>
+                            <p>По дате</p>
+                        </div>
+                    </div>
+                    <div className='comments__container'>
+
+                    </div>
                 </section>
             </main>
         )

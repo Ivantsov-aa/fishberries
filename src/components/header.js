@@ -22,7 +22,7 @@ class Header extends React.Component {
                     </nav>
                     <div className='header_buttons'>
                         <button className='authorization'>Войти</button>
-                        <button className='registration'>Регистрация</button>
+                        <Link to='/registration' className='registration'>Регистрация</Link>
                     </div>
                 </div>
             </header>

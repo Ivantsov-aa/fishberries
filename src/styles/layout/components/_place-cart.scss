@@ -523,12 +523,12 @@
             }
         }
 
-        .comments__wrapper {
+        .reviews__wrapper {
             flex-wrap: wrap;
             @include flex-params (row, space-between, center);
             margin-bottom: 10px;
 
-            .comment__container {
+            .review__container {
                 display: flex;
                 max-width: 634px;
                 max-height: 182px;
@@ -544,7 +544,7 @@
                     }
                 }
 
-                .comment-text {
+                .review-text {
                     margin: 4px 0 10px;
                 }
 
@@ -574,6 +574,7 @@
                         .likes-count {
                             @include font-params (900, 16px, 22px, 0.05em);
                             margin-right: 10px;
+                            color: $link_color;
 
                             &::before {
                                 content: '';
@@ -619,6 +620,51 @@
             border-radius: 10px;
             color: #fff;
             @include font-params (700, 18px, 25px, 0.05em);
+        }
+    }
+
+    .comments__wrapper {
+        max-width: 100%;
+        @include flex-params (column, space-between, center);
+        background: #EDF0F7;
+        padding: 43px 0 107px;
+
+        .comments_title {
+            display: flex;
+            position: relative;
+            margin-bottom: 43px;
+
+            h2 {
+                @include font-params (400, 40px, 51px, 0.016em);
+                color: $link_color;
+            }
+
+            >div {
+                position: absolute;
+                display: flex;
+                left: 666px;
+                top: 12px;
+                color: $link_color;
+
+                .filter-arrow {
+                    width: 24px;
+                    height: 24px;
+                    background: url('../../../../public/images/main/icon-filter-arrow-cart.svg') no-repeat center;
+                    margin-right: 10px;
+
+                    &.down {
+                        transform: rotate(180deg);
+                    }
+                }
+
+                p {
+                    font-family: 'Days One', sans-serif;
+                    @include font-params (400, 18px, 23px, 0.016em);
+                    color: $link_color;
+                    text-decoration: underline;
+                    width: 82px;
+                }
+            }
         }
     }
 }

@@ -51,7 +51,12 @@ header {
                     margin-right: 30px;
 
                     a {
-                        @include font-params (700, 24px, 150%, 0.05em);
+                        @include font-params (700, 24px, 36px, 0.05em);
+
+                        &:hover {
+                            color: #DB0BC0;
+                            border-bottom: #DB0BC0 2px solid;
+                        }
                     }
 
                     &:last-child {

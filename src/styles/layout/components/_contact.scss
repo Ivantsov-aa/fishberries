@@ -1,0 +1,106 @@
+.faq {
+    border-top: 1px solid #221F63;
+}
+
+.main__faq {
+    max-width: 1170px;
+    margin: auto;
+    padding: 21px 0 20px;
+    color: $link_color;
+    @include flex-params (column, flex-start, center);
+
+    h2 {
+        @include font-params (400, 50px, 170%, 0.016em);
+        text-transform: capitalize;
+    }
+
+    ul {
+        display: flex;
+        margin-bottom: 20px;
+
+        li {
+            padding: 0 15px;
+            border-right: 1px solid #717D96;
+
+            &:last-child {
+                border: none;
+            }
+
+            button {
+                @include font-params (400, 16px, 14px, 0.05em);
+                color: #717D96;
+
+                &.active {
+                    color: $link_color;
+                }
+            }
+        }
+    }
+
+    .faq__wrapper {
+        display: grid;
+        grid-template-columns: 570px 570px;
+        grid-gap: 30px;
+        margin-bottom: 18px;
+
+        .faq__container {
+            padding: 12px;
+            border: 1px solid #CBD2E0;
+            border-radius: 5px;
+            height: 76px;
+            margin-bottom: 20px;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+            &.active {
+                height: max-content;
+            }
+
+            >div {
+                @include flex-params (row, space-between, flex-start);
+                color: #051951;
+
+                h3 {
+                    max-width: 383px;
+                    margin-bottom: 12px;
+                }
+
+                button {
+                    width: 20px;
+                    height: 20px;
+                    background: url('../../../../public/images/contact/plus-icon-faq.png') no-repeat center;
+
+                    &.active {
+                        background: url('../../../../public/images/contact/minus-icon-faq.png') no-repeat center;
+                    }
+                }
+            }
+
+            p {
+                @include font-params (400, 16px, 170%, 0.05em);
+                color: #717D96;
+
+                a {
+                    text-decoration: underline;
+                    color: #221F63;
+                }
+
+                span {
+                    color: #00A5FF;
+                }
+            }
+        }
+    }
+
+    .main__faq_prompt {
+        @include font-params (400, 16px, 170%, 0.05em);
+        color: #666666;
+
+        a {
+            text-decoration: underline;
+            color: #666666;
+        }
+    }
+}
