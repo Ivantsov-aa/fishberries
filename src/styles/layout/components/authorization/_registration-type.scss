@@ -1,0 +1,48 @@
+.registration-type {
+    max-width: 850px;
+    margin: auto;
+    padding-top: 60px;
+    @include flex-params (column, flex-start, center);
+
+    h2 {
+        @include font-params (400, 50px, 61px, 0.0016em);
+        font-family: 'Days One', sans-serif;
+        color: #051951;
+        margin-bottom: 10px;
+    }
+
+    p {
+        @include font-params (400, 24px, 27px, 0.05em);
+        color: #717D96;
+        margin-bottom: 42px;
+
+        a {
+            @include font-params (800, 24px, 27px, 0.05em);
+            color: #051951;
+        }
+    }
+
+    div {
+        display: flex;
+        text-align: center;
+
+        a {
+            display: block;
+            width: 225px;
+            height: 63px;
+            padding-top: 19px;
+            border-radius: 10px;
+            background-color: #FC8000;
+            color: #fff;
+            @include font-params (700, 18px, 25px, 0.05em);
+            margin-right: 34px;
+
+            &.owner {
+                background-color: #fff;
+                border: 2px solid #FC8000;
+                color: #FC8000;
+                margin-right: 0;
+            }
+        }
+    }
+}

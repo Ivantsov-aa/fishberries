@@ -1,0 +1,200 @@
+.registration-page {
+    max-width: 1050px;
+    margin: auto;
+    padding-top: 60px;
+    @include flex-params (column, flex-start, center);
+
+    .registration-page__steps {
+        @include flex-params (row, space-between, center);
+        width: 100%;
+        padding: 30px;
+        background-color: #F7F9FC;
+        border-radius: 4px;
+        margin-bottom: 34px;
+
+        li {
+            @include flex-params (column, flex-start, center);
+            text-align: center;
+            color: #fff;
+            position: relative;
+
+            &:last-child {
+                &::after {
+                    display: none;
+                }
+            }
+
+            &::after {
+                content: '';
+                display: inline-block;
+                position: absolute;
+                right: -172px;
+                top: 42px;
+                height: 4px;
+                width: 80px;
+                background-color: #A0ABC0;
+                border-radius: 4px;
+            }
+
+            &.active {
+                &::after {
+                    background-color: #00D2D0;
+                }
+            }
+
+            .step_icon {
+                background-color: #A0ABC0;
+                width: 48px;
+                height: 48px;
+                border-radius: 50%;
+                padding-top: 11px;
+                @include font-params (700, 24px, 27px, 0.05em);
+                font-family: 'Roboto', sans-serif;
+                margin-bottom: 10px;
+
+                &.active {
+                    background-color: #00D2D0;
+                }
+            }
+
+            .step_caption {
+                @include font-params (600, 20px, 25px, 0.01em);
+                color: #9595B1;
+            }
+        }
+    }
+
+    .registration-page__form {
+        width: 630px;
+        margin: auto;
+        text-align: center;
+
+        .delete-photo {
+            width: 36px;
+            height: 36px;
+            background: url('../../../../../public/images/authorization/delete-photo-icon.svg') no-repeat center;
+            background-size: cover;
+        }
+
+        .user-photo__caption {
+            @include font-params (400, 16px, 20px, 0.01em);
+            color: #717D96;
+            margin-bottom: 10px;
+            text-align: left;
+
+            &.upload {
+                font-weight: 700;
+            }
+        }
+
+        .user-photo__container {
+            @include flex-params (row, flex-start, center);
+            margin-bottom: 30px;
+
+            .user-photo {
+                width: 168px;
+                height: 168px;
+                background-color: #F9F9FB;
+                border: 1px solid #EFEFF5;
+                border-radius: 4px;
+                margin-right: 20px;
+
+                label {
+                    display: block;
+                    width: 168px;
+                    height: 168px;
+                    background: url('../../../../../public/images/authorization/upload-photo-icon.svg') no-repeat center;
+                    cursor: pointer;
+                }
+
+                input {
+                    display: none;
+                }
+
+                img {
+                    object-fit: cover;
+                    max-width: 168px;
+                    max-height: 168px;
+                }
+            }
+        }
+
+        label {
+            text-align: left;
+            @include font-params (400, 16px, 20px, 0.01em);
+            color: #717D96;
+            margin-bottom: 30px;
+            display: block;
+
+            input {
+                @include font-params (400, 20px, 25px, 0.01em);
+                color: #717D96;
+                width: 100%;
+                padding: 30px;
+                display: block;
+                border: none;
+                border-bottom: 2px solid #A0ABC0;
+
+                &::placeholder {
+                    color: #717D96;
+                }
+            }
+        }
+
+        .error-message {
+            position: absolute;
+            transform: translateY(-115%);
+            color: #DB0BC0;
+            @include font-params (700, 18px, 22px, 0.01em);
+        }
+
+        input[type='file'] {
+            width: 168px;
+            height: 168px;
+            background: url('../../../../../public/images/authorization/upload-photo-icon.svg') no-repeat center;
+        }
+
+        input[type='submit'] {
+            background-color: #FC8000;
+            width: 225px;
+            height: 63px;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            box-shadow: inset 0px 0px 8px rgba(0, 0, 0, 0.04);
+            @include font-params (700, 20px, 25px, 0.01em);
+            margin-bottom: 20px;
+        }
+
+        .apply-agreement {
+            text-align: left;
+
+            input[type='checkbox'] {
+                position: absolute;
+                opacity: 0;
+                z-index: -1;
+            }
+
+            input[type='checkbox']+label {
+                cursor: pointer;
+                display: inline-flex;
+                align-items: center;
+
+                &::before {
+                    content: '';
+                    display: inline-block;
+                    width: 40px;
+                    height: 40px;
+                    background: url('../../../../../public/images/authorization/default-checkbox-icon.svg') no-repeat center;
+                    background-size: cover;
+                    margin-right: 15px;
+                }
+            }
+
+            input[type='checkbox']:checked+label::before {
+                background: url('../../../../../public/images/authorization/apply-checkbox-icon.svg') no-repeat center;
+                background-size: cover;
+            }
+        }
+    }
+}

@@ -2,11 +2,9 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 
 import arrayPlaces from './store/store';
 
-import Header from './components/header';
-import Main from './components/main';
-import PlaceCart from './components/placecart/place-cart';
-import Subscription from './components/subscription/subscription';
-import Contact from './components/contact/contact';
+import Wrapper from './wrapper';
+import RegistrationType from './components/authorization/registration-type';
+import RegistrationPage from './components/authorization/registration-page';
 
 const App = () => {
 
@@ -14,13 +12,10 @@ const App = () => {
 
   return (
     <div className='container'>
-      <Header />
       <Routes>
-        <Route path='/' element={<Main arrayPlaces={arrayPlaces} />} />
-        <Route path='/places/:place' element={<PlaceCart arrayPlaces={arrayPlaces} location={location.pathname} />} />
-        <Route path='/subscription' element={<Subscription />} />
-        <Route path='/contact' element={<Contact />} />
-        {/* <Route path='/registration' element={<Registration />} /> */}
+        <Route path='*' element={<Wrapper arrayPlaces={arrayPlaces} location={location.pathname} />} />
+        <Route path='/registration' element={<RegistrationType />} />
+        <Route path='/registration/*' element={<RegistrationPage location={location.pathname} />} />
       </Routes>
     </div>
   );

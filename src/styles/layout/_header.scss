@@ -78,6 +78,13 @@ header {
                     padding: 19px 48.5px;
                     margin-right: 19px;
                 }
+            }
+
+            a {
+                @include font-params (700, 18px, 25px, 0.05em);
+                letter-spacing: 0.05em;
+                color: #221F63;
+                border-radius: 10px;
 
                 &.registration {
                     padding: 19px 30px;
