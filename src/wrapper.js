@@ -9,17 +9,17 @@ import Contact from './components/contact/contact';
 
 class Wrapper extends React.Component {
     render() {
-        const { arrayPlaces, location } = this.props;
+        const { isLogged, authUser, arrayPlaces, location } = this.props;
 
         return (
             <>
-                <Header />
-                <Routes>
-                    <Route path='/' element={<Main arrayPlaces={arrayPlaces} />} />
-                    <Route path='/places/:place' element={<PlaceCart arrayPlaces={arrayPlaces} location={location.pathname} />} />
-                    <Route path='/subscription' element={<Subscription />} />
-                    <Route path='/contact' element={<Contact />} />
-                </Routes>
+                <Header isLogged={isLogged} authUser={authUser} />
+                    <Routes>
+                        <Route path='/' element={<Main arrayPlaces={arrayPlaces} />} />
+                        <Route path='/places/:place' element={<PlaceCart arrayPlaces={arrayPlaces} location={location} />} />
+                        <Route path='/subscription' element={<Subscription />} />
+                        <Route path='/contact' element={<Contact />} />
+                    </Routes>
             </>
         )
     }

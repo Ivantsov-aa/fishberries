@@ -22,27 +22,34 @@
         }
     }
 
-    div {
-        display: flex;
+    >a {
         text-align: center;
+        display: block;
+        width: 225px;
+        height: 63px;
+        padding-top: 19px;
+        border-radius: 10px;
+        background-color: #FC8000;
+        color: #fff;
+        @include font-params (700, 18px, 25px, 0.05em);
+        margin-right: 34px;
+        margin-bottom: 42px;
+
+        &.owner {
+            background-color: #fff;
+            border: 2px solid #FC8000;
+            color: #FC8000;
+            margin-right: 0;
+        }
+    }
+
+    .caption {
+        @include font-params (400, 20px, 25px, 0.05em);
+        color: #A0ABC0;
 
         a {
-            display: block;
-            width: 225px;
-            height: 63px;
-            padding-top: 19px;
-            border-radius: 10px;
-            background-color: #FC8000;
-            color: #fff;
-            @include font-params (700, 18px, 25px, 0.05em);
-            margin-right: 34px;
-
-            &.owner {
-                background-color: #fff;
-                border: 2px solid #FC8000;
-                color: #FC8000;
-                margin-right: 0;
-            }
+            color: #204BDB;
+            @include font-params (400, 20px, 25px, 0.05em);
         }
     }
 }

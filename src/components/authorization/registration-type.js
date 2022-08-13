@@ -7,10 +7,8 @@ class RegistrationType extends React.Component {
             <section className='registration-type'>
                 <h2>Создайте Ваш новый аккаунт!</h2>
                 <p>Уже зарегистрированы? <Link to='/auth'>Войти</Link></p>
-                <div>
-                    <Link to='/registration/user' className='user'>Пользователь</Link>
-                    <Link to='/registration/owner' className='owner'>Владелец места</Link>
-                </div>
+                <Link to='/registration/form'>Зарегистрироваться</Link>
+                <p className='caption'>Вы владелец рыбного места? Отправьте заявку на <a href='mailto:support@fishberries.ru'>support@fishberries.ru</a></p>
             </section>
         )
     }

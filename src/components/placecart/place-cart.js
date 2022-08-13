@@ -236,7 +236,7 @@ class PlaceCart extends React.Component {
                                         placeholderRating={comment.rating}
                                         readonly
                                     />
-                                    <p className='review-text'>{comment.re}</p>
+                                    <p className='review-text'>{comment.text}</p>
                                     <p className='user-name'>{comment.userName}<span>{comment.date}</span></p>
                                     <div className='details__footer'>
                                         <div>

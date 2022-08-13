@@ -66,8 +66,16 @@ header {
             }
         }
 
+        .private-area__button {
+            @include font-params (700, 24px, 36px, 0.05em);
+            background-color: #204BDB;
+            color: #fff;
+            border-radius: 10px;
+            padding: 14px 30px 13px;
+        }
+
         .header_buttons {
-            button {
+            a {
                 @include font-params (700, 18px, 25px, 0.05em);
                 letter-spacing: 0.05em;
                 color: #221F63;
@@ -78,13 +86,6 @@ header {
                     padding: 19px 48.5px;
                     margin-right: 19px;
                 }
-            }
-
-            a {
-                @include font-params (700, 18px, 25px, 0.05em);
-                letter-spacing: 0.05em;
-                color: #221F63;
-                border-radius: 10px;
 
                 &.registration {
                     padding: 19px 30px;

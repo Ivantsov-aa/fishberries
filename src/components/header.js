@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 
 class Header extends React.Component {
     render() {
+        const { authUser, isLogged } = this.props;
+
         return (
             <header>
                 <div className='header__mail-row'>
@@ -20,10 +22,14 @@ class Header extends React.Component {
                             <li><Link to='/contact'>Контакт</Link></li>
                         </ul>
                     </nav>
-                    <div className='header_buttons'>
-                        <button className='authorization'>Войти</button>
-                        <Link to='/registration' className='registration'>Регистрация</Link>
-                    </div>
+                    {isLogged ?
+                        <p className='private-area__button'>{authUser.name ? authUser.name : authUser.login}</p>
+                        :
+                        <div className='header_buttons'>
+                            <Link to='/auth' className='authorization'>Войти</Link>
+                            <Link to='/registration' className='registration'>Регистрация</Link>
+                        </div>
+                    }
                 </div>
             </header>
         )

@@ -42,6 +42,12 @@
                 }
             }
 
+            &.completed {
+                &::after {
+                    background-color: #DB0BC0;
+                }
+            }
+
             .step_icon {
                 background-color: #A0ABC0;
                 width: 48px;
@@ -54,6 +60,12 @@
 
                 &.active {
                     background-color: #00D2D0;
+                    cursor: pointer;
+                }
+
+                &.completed {
+                    background-color: #DB0BC0;
+                    cursor: pointer;
                 }
             }
 
@@ -105,10 +117,12 @@
                     height: 168px;
                     background: url('../../../../../public/images/authorization/upload-photo-icon.svg') no-repeat center;
                     cursor: pointer;
+
                 }
 
                 input {
                     display: none;
+                    position: relative;
                 }
 
                 img {
@@ -125,6 +139,31 @@
             color: #717D96;
             margin-bottom: 30px;
             display: block;
+            position: relative;
+
+            &.password {
+
+                input[type='password'] {
+                    color: #FC8000;
+                }
+
+                p {
+                    position: absolute;
+                    top: 50px;
+                    right: 20px;
+                    width: 30px;
+                    height: 20px;
+                    background: url('../../../../../public/images/authorization/show-password-icon.svg') no-repeat center;
+                    background-size: cover;
+                    cursor: pointer;
+
+                    &.active {
+                        background: url('../../../../../public/images/authorization/hide-password-icon.svg') no-repeat center;
+                        background-size: cover;
+                    }
+                }
+            }
+
 
             input {
                 @include font-params (400, 20px, 25px, 0.01em);
@@ -134,9 +173,20 @@
                 display: block;
                 border: none;
                 border-bottom: 2px solid #A0ABC0;
+                background: none;
 
                 &::placeholder {
                     color: #717D96;
+                }
+
+                &.valid {
+                    background: url('../../../../../public/images/subscription/list-point.svg') no-repeat center;
+                    background-position-x: 30px;
+                    padding-left: 70px;
+                }
+
+                &:invalid {
+                    background: none;
                 }
             }
         }
@@ -146,6 +196,11 @@
             transform: translateY(-115%);
             color: #DB0BC0;
             @include font-params (700, 18px, 22px, 0.01em);
+
+            &:last-child {
+                transform: translateY(-20px);
+                position: relative;
+            }
         }
 
         input[type='file'] {
@@ -164,6 +219,7 @@
             box-shadow: inset 0px 0px 8px rgba(0, 0, 0, 0.04);
             @include font-params (700, 20px, 25px, 0.01em);
             margin-bottom: 20px;
+            cursor: pointer;
         }
 
         .apply-agreement {
@@ -195,6 +251,104 @@
                 background: url('../../../../../public/images/authorization/apply-checkbox-icon.svg') no-repeat center;
                 background-size: cover;
             }
+        }
+    }
+
+    .registration-page__subscription-payment {
+        >div {
+            width: 1414px;
+            @include flex-params (row, space-between, center);
+            border: 1px solid #CBD2E0;
+            padding: 24.5px 28px;
+            margin-bottom: 20px;
+
+            img {
+                height: 245px;
+            }
+
+            ul {
+                color: #221F63;
+
+
+                p,
+                span {
+                    @include font-params (800, 16px, 22px, 0.05em);
+                    margin-bottom: 10px;
+                }
+
+                p {
+                    padding-left: 34px;
+                }
+
+                li {
+                    @include font-params (400, 16px, 22px, 0.05em);
+                    margin-bottom: 10px;
+
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+
+                    &::before {
+                        content: '';
+                        display: inline-block;
+                        width: 24px;
+                        height: 24px;
+                        background: url('../../../../../public/images/subscription/list-point.svg') no-repeat center;
+                        vertical-align: middle;
+                        margin-right: 10px;
+                    }
+                }
+            }
+
+            div {
+                text-align: center;
+
+                p {
+                    font-family: 'Days One', sans-serif;
+                    @include font-params (400, 40px, 51px, 0.016em);
+                    color: #FC8000;
+                    margin-bottom: 15px;
+
+                    span {
+                        display: block;
+                        @include font-params (400, 16px, 170%, 0.05em);
+                        color: #221F63;
+                    }
+                }
+
+                button {
+                    width: 225px;
+                    height: 63px;
+                    background: #FC8000;
+                    border-radius: 10px;
+                    color: #fff;
+                    @include font-params (400, 18px, 25px, 0.05em);
+                }
+            }
+        }
+    }
+
+    .registration-page__complete {
+        text-align: center;
+        img {
+            width: 40px;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        p {
+            @include font-params (600, 20px, 25px, 0.01em);
+            color: #9595B1;
+            margin-bottom: 10px;
+        }
+
+        a {
+            display: block;
+            padding: 19px 17.5px;
+            background-color: #FC8000;
+            border-radius: 10px;
+            @include font-params (700, 18px, 25px, 0.05em);
+            color: #fff;
         }
     }
 }
