@@ -1,0 +1,120 @@
+.authorization-page {
+    max-width: 850px;
+    margin: auto;
+    padding-top: 60px;
+    text-align: center;
+
+    h1 {
+        @include font-params (400, 50px, 61px, 0.0016em);
+        font-family: 'Days One', sans-serif;
+        color: #051951;
+        margin-bottom: 10px;
+    }
+
+    p {
+        @include font-params (400, 24px, 27px, 0.05em);
+        color: #717D96;
+        margin-bottom: 42px;
+
+        a {
+            @include font-params (800, 24px, 27px, 0.05em);
+            color: #051951;
+        }
+    }
+
+    label {
+        text-align: left;
+        @include font-params (400, 16px, 20px, 0.01em);
+        color: #717D96;
+        margin-bottom: 50px;
+        display: block;
+        position: relative;
+
+        &.password {
+
+            input[type='password'] {
+                color: #FC8000;
+            }
+
+            p {
+                position: absolute;
+                top: 50px;
+                right: 20px;
+                width: 30px;
+                height: 20px;
+                background: url('../../../../../public/images/authorization/show-password-icon.svg') no-repeat center;
+                background-size: cover;
+                cursor: pointer;
+
+                &.active {
+                    background: url('../../../../../public/images/authorization/hide-password-icon.svg') no-repeat center;
+                    background-size: cover;
+                }
+            }
+        }
+
+
+        input {
+            @include font-params (400, 20px, 25px, 0.01em);
+            color: #717D96;
+            width: 100%;
+            padding: 30px;
+            display: block;
+            border: none;
+            border-bottom: 2px solid #A0ABC0;
+            background: none;
+
+            &::placeholder {
+                color: #717D96;
+            }
+
+            &.valid {
+                background: url('../../../../../public/images/subscription/list-point.svg') no-repeat center;
+                background-position-x: 30px;
+                padding-left: 70px;
+            }
+
+            &:invalid {
+                background: none;
+            }
+        }
+    }
+
+    .error-message {
+        position: absolute;
+        transform: translateY(-65%);
+
+        &.error-auth {
+            transform: translateY(-50%);
+        }
+
+        p {
+            color: #DB0BC0;
+            @include font-params (700, 18px, 22px, 0.01em);
+        }
+
+        &:last-child {
+            transform: translateY(-20px);
+            position: relative;
+        }
+    }
+
+    input[type='file'] {
+        width: 168px;
+        height: 168px;
+        background: url('../../../../../public/images/authorization/upload-photo-icon.svg') no-repeat center;
+    }
+
+    input[type='submit'] {
+        background-color: #FC8000;
+        width: 225px;
+        height: 63px;
+        color: #fff;
+        border: none;
+        border-radius: 10px;
+        box-shadow: inset 0px 0px 8px rgba(0, 0, 0, 0.04);
+        @include font-params (700, 20px, 25px, 0.01em);
+        margin-bottom: 20px;
+        cursor: pointer;
+    }
+}

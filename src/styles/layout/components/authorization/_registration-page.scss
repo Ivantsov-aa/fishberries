@@ -76,10 +76,56 @@
         }
     }
 
-    .registration-page__form {
+    >div {
         width: 630px;
         margin: auto;
-        text-align: center;
+    }
+
+    .user-photo__caption {
+        align-self: flex-start;
+        @include font-params (400, 16px, 20px, 0.01em);
+        color: #717D96;
+        margin-bottom: 10px;
+        text-align: left;
+
+        &.upload {
+            font-weight: 700;
+        }
+    }
+
+    .user-photo__container {
+        align-self: flex-start;
+        @include flex-params (row, flex-start, center);
+        margin-bottom: 30px;
+
+        .user-photo {
+            width: 168px;
+            height: 168px;
+            background-color: #F9F9FB;
+            border: 1px solid #EFEFF5;
+            border-radius: 4px;
+            margin-right: 20px;
+
+            label {
+                display: block;
+                width: 168px;
+                height: 168px;
+                background: url('../../../../../public/images/authorization/upload-photo-icon.svg') no-repeat center;
+                cursor: pointer;
+
+            }
+
+            input {
+                display: none;
+                position: relative;
+            }
+
+            img {
+                object-fit: cover;
+                max-width: 168px;
+                max-height: 168px;
+            }
+        }
 
         .delete-photo {
             width: 36px;
@@ -87,51 +133,12 @@
             background: url('../../../../../public/images/authorization/delete-photo-icon.svg') no-repeat center;
             background-size: cover;
         }
+    }
 
-        .user-photo__caption {
-            @include font-params (400, 16px, 20px, 0.01em);
-            color: #717D96;
-            margin-bottom: 10px;
-            text-align: left;
-
-            &.upload {
-                font-weight: 700;
-            }
-        }
-
-        .user-photo__container {
-            @include flex-params (row, flex-start, center);
-            margin-bottom: 30px;
-
-            .user-photo {
-                width: 168px;
-                height: 168px;
-                background-color: #F9F9FB;
-                border: 1px solid #EFEFF5;
-                border-radius: 4px;
-                margin-right: 20px;
-
-                label {
-                    display: block;
-                    width: 168px;
-                    height: 168px;
-                    background: url('../../../../../public/images/authorization/upload-photo-icon.svg') no-repeat center;
-                    cursor: pointer;
-
-                }
-
-                input {
-                    display: none;
-                    position: relative;
-                }
-
-                img {
-                    object-fit: cover;
-                    max-width: 168px;
-                    max-height: 168px;
-                }
-            }
-        }
+    .registration-page__form {
+        width: 630px;
+        margin: auto;
+        text-align: center;
 
         label {
             text-align: left;
@@ -194,12 +201,15 @@
         .error-message {
             position: absolute;
             transform: translateY(-115%);
-            color: #DB0BC0;
-            @include font-params (700, 18px, 22px, 0.01em);
 
             &:last-child {
                 transform: translateY(-20px);
                 position: relative;
+            }
+
+            p {
+                color: #DB0BC0;
+                @include font-params (700, 18px, 22px, 0.01em);
             }
         }
 
@@ -255,6 +265,8 @@
     }
 
     .registration-page__subscription-payment {
+        padding-bottom: 14px;
+
         >div {
             width: 1414px;
             @include flex-params (row, space-between, center);
@@ -330,6 +342,7 @@
 
     .registration-page__complete {
         text-align: center;
+
         img {
             width: 40px;
             object-fit: cover;

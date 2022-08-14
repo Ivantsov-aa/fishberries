@@ -1,0 +1,42 @@
+.apply-delete_pop-up {
+    overflow: visible;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 252px;
+    background-color: #fff;
+    border-radius: 8px;
+    z-index: 15;
+    padding: 32px;
+
+    h2 {
+        @include font-params (800, 24px, 33px, 1);
+        margin-bottom: 15px;
+        font-family: 'Nunito Sans', sans-serif;
+        color: #334253;
+    }
+
+    p {
+        @include font-params (400, 16px, 24px, 1);
+        color: #67727E;
+        margin-bottom: 20px;
+    }
+
+    >div {
+        button {
+            width: 161px;
+            height: 48px;
+            color: #fff;
+            background-color: #FC8000;
+            border-radius: 10px;
+            @include font-params (800, 16px, 24px, 1);
+
+            &:first-child {
+                background-color: #A0ABC0;
+                margin-right: 14px;
+            }
+        }
+    }
+}

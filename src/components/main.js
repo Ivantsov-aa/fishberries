@@ -663,7 +663,7 @@ class Main extends React.Component {
                                 </section>
                             }
                             <div>
-                                <FishingPlace arrayPlaces={arrayPlaces} />
+                                <FishingPlace filterState={filterState} arrayPlaces={arrayPlaces} />
                             </div>
                         </div>
                         <button className='show-more'>Показать ещё...</button>

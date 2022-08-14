@@ -4,15 +4,23 @@ import { useState, useEffect } from 'react';
 import arrayPlaces from './store/store';
 
 import Wrapper from './wrapper';
+
 import RegistrationType from './components/authorization/registration-type';
 import RegistrationPage from './components/authorization/registration-page';
 import AuthorizationPage from './components/authorization/authorization-page';
+
 import PrivateArea from './components/private-area/private-area';
+import AccountManagement from './components/private-area/account-management';
+import AccountSubscriptions from './components/private-area/account-subscriptions';
+import EditProfilePage from './components/private-area/edit-profile';
+import EditPlacesPage from './components/private-area/edit-places';
+import FavoritePage from './components/private-area/favorite-page';
 
 const App = () => {
   const [userId, setUserId] = useState(null);
   const [isLogged, setStateLogged] = useState(false);
   const [authUser, setAuthUser] = useState(null);
+  const [stateDeletePopUp, setStateDeletePopUp] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -35,6 +43,7 @@ const App = () => {
   }, [])
 
   const handleLogIn = (data) => {
+    console.log(data);
     const isLogInUser = arrayUsers.map(user => (
       user.login === data.login ?
         { ...user, isLogged: true }
@@ -48,6 +57,18 @@ const App = () => {
     setAuthUser(data);
   }
 
+  const handleLogOut = login => {
+    const isLogOutUser = arrayUsers.map(user => (
+      user.login === login ? { ...user, isLogged: false } : { ...user }
+    ))
+
+    localStorage.setItem('users', JSON.stringify(isLogOutUser));
+
+    setStateLogged(false);
+    setAuthUser(null);
+    navigate('/');
+  }
+
   const registrationSubmit = data => {
     localStorage.setItem('userId', userIdLS ? +userIdLS + 1 : 1);
     const userIdToArray = localStorage.getItem('userId');
@@ -56,6 +77,27 @@ const App = () => {
     arrayUsers.push({ ...data, isLogged: true, userId: userIdToArray });
     localStorage.setItem('users', JSON.stringify(arrayUsers));
     setStateLogged(true);
+    setAuthUser({ ...data, isLogged: true, userId: userIdToArray });
+  }
+
+  const handleNewPersonalInfo = (data) => {
+    const addPersonalInfo = { ...authUser, ...data };
+    const localUsers = JSON.parse(localStorage.getItem('users'));
+    const changedLocalUsers = localUsers.map(user => {
+      if (user.login === addPersonalInfo.login) {
+        return addPersonalInfo;
+      } else {
+        return user;
+      }
+    })
+
+    localStorage.setItem('users', JSON.stringify(changedLocalUsers));
+
+    setAuthUser(addPersonalInfo);
+  }
+
+  const openDeletePopUp = () => {
+    setStateDeletePopUp(!stateDeletePopUp);
   }
 
   return (
@@ -66,7 +108,20 @@ const App = () => {
         <Route path='/registration/form' element={<RegistrationPage userId={userId} location={location.pathname} registrationSubmit={registrationSubmit} />} />
         <Route path='/auth' element={<AuthorizationPage navigate={navigate} handleLogIn={handleLogIn} />} />
         {isLogged &&
-          <Route path='/profile/:id' element={<PrivateArea location={location.pathname} authUser={authUser} />} />
+          <Route path='/profile/:id/*' element={
+            <PrivateArea
+              location={location.pathname}
+              authUser={authUser}
+              stateDeletePopUp={stateDeletePopUp}
+              handleLogOut={handleLogOut}
+            />
+          }>
+            <Route path='cabinet' element={<AccountManagement location={location.pathname} authUser={authUser} />} />
+            <Route path='subscriptions' element={<AccountSubscriptions location={location.pathname} authUser={authUser} />} />
+            <Route path='edit-profile' element={<EditProfilePage location={location.pathname} navigate={navigate} authUser={authUser} handleNewPersonalInfo={handleNewPersonalInfo} />} />
+            <Route path='edit-places' element={<EditPlacesPage location={location.pathname} navigate={navigate} authUser={authUser} handleNewPersonalInfo={handleNewPersonalInfo} />} />
+            <Route path='favorite' element={<FavoritePage authUser={authUser} arrayPlaces={arrayPlaces} stateDeletePopUp={stateDeletePopUp} openDeletePopUp={openDeletePopUp} />} />
+          </Route>
         }
       </Routes>
     </div>

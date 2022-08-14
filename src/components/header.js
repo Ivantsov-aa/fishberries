@@ -23,7 +23,7 @@ class Header extends React.Component {
                         </ul>
                     </nav>
                     {isLogged ?
-                        <p className='private-area__button'>{authUser.name ? authUser.name : authUser.login}</p>
+                        <Link to={`/profile/${authUser.userId}/cabinet`} className='private-area__button'>{authUser.name ? authUser.name : authUser.login}</Link>
                         :
                         <div className='header_buttons'>
                             <Link to='/auth' className='authorization'>Войти</Link>

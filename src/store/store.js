@@ -1,7 +1,8 @@
 const arrayPlaces = [
     {
         id: 1,
-        pic: 'images/main/ihtiolog.png',
+        selected: false,
+        pic: '/images/main/ihtiolog.png',
         title: 'Ихтиолог',
         path: 'ihtiolog',
         organization: 'Рыболовный клуб',
@@ -80,7 +81,8 @@ const arrayPlaces = [
     },
     {
         id: 2,
-        pic: 'images/main/ramenskiy.png',
+        selected: false,
+        pic: '/images/main/ramenskiy.png',
         title: 'Раменский (Гжелка)',
         path: 'ramenskiy',
         organization: 'Рыболовное хозяйство',
@@ -150,7 +152,8 @@ const arrayPlaces = [
     },
     {
         id: 3,
-        pic: 'images/main/white-dacha.png',
+        selected: false,
+        pic: '/images/main/white-dacha.png',
         title: 'Белая Дача',
         path: 'whitedacha',
         organization: 'Культурное рыбное хозяйство',

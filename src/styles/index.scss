@@ -13,6 +13,7 @@
 @import 'layout/header';
 @import 'layout/main';
 @import 'layout/components/place-cart';
+@import 'layout/components/fishing-place-cart';
 @import 'layout/components/subscription';
 @import 'layout/components/contact';
 @import 'layout/ads-block';
@@ -20,3 +21,6 @@
 
 @import 'layout/components/authorization/registration-type';
 @import 'layout/components/authorization/registration-page';
+@import 'layout/components/authorization/authorization-page';
+@import 'layout/components/private-area/private-area';
+@import 'layout/components/private-area/delete-pop-up';
