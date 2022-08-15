@@ -1,5 +1,6 @@
 import React from 'react';
 import { YMaps, Map, Clusterer, Placemark } from 'react-yandex-maps';
+import { Link } from 'react-router-dom';
 
 import AdsBlock from './ads-block';
 import FishingPlace from './fishing-block';
@@ -695,11 +696,15 @@ class Main extends React.Component {
                                                 ]}
                                                 properties={{
                                                     balloonContent: `
-                                                    <h2>${place.title}</h2>
-                                                    <p>${place.likesCount}</p>
-                                                    <p>${place.price}</p>
-                                                    <button>Подробнее</button>
-                                                `
+                                                        <div class='balloon__container'>
+                                                            <h2>${place.title}</h2>
+                                                            <div>
+                                                                <p>${place.likesCount}</p>
+                                                                <p>от ${place.price} ₽</p>
+                                                            </div>
+                                                            <a href=${`/places/${place.path}`}>Подробнеe</a>
+                                                        </div>
+                                                    `
                                                 }}
                                                 options={{
                                                     iconLayout: 'default#imageWithContent',

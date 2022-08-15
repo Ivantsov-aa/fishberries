@@ -7,8 +7,8 @@ class FishingPlace extends React.Component {
 
         return (
             arrayPlaces.map((place, i) => (
-                <div className='fishing-place__wrapper'>
-                    <div className='fishing-place__cart' key={i}>
+                <div className='fishing-place__wrapper'  key={i}>
+                    <div className='fishing-place__cart'>
                         <div className='fishing-place__pic'>
                             <img src={place.pic} alt='fishing-pic' />
                         </div>

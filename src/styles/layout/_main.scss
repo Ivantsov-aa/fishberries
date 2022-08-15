@@ -174,21 +174,6 @@ main {
         }
     }
 
-    .main__map {
-        text-align: center;
-
-        h2 {
-            @include font-params (400, 40px, 51px, 0.016em);
-            color: $link_color;
-            margin: 43px 0;
-        }
-
-        .map__wrapper {
-            width: 100%;
-            height: 700px;
-
-        }
-    }
 }
 
 // Просмотреть
@@ -237,19 +222,115 @@ main {
         }
     }
 
-    .balloon-container {
-        width: 311px;
-        height: 188px;
-        border: 1px solid #CBD2E0;
-        box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.05);
-        border-radius: 10px;
+    //
 
-        h2 {
-            font-family: 'Days One', sans-serif;
-            @include font-params (400, 20px, 25px, 0.016em);
+}
+
+
+.main__map {
+    text-align: center;
+
+    h2 {
+        @include font-params (400, 40px, 51px, 0.016em);
+        color: $link_color;
+        margin: 43px 0;
+    }
+
+    .map__wrapper {
+        width: 100%;
+        height: 700px;
+
+    }
+}
+
+.ymaps-2-1-79-balloon {
+    border-radius: 10px;
+    width: 311px;
+
+    .ymaps-2-1-79-balloon__layout {
+        border-radius: 10px;
+        position: relative;
+        left: -55px;
+        box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.05);
+
+        .ymaps-2-1-79-balloon__close {
+            display: none;
+        }
+
+        .ymaps-2-1-79-balloon__content {
+            padding: 0;
+            margin: 0;
+
+            .balloon__container {
+                width: 311px;
+                height: 188px;
+                border: 1px solid #CBD2E0;
+                box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.05);
+                border-radius: 10px;
+                padding: 12.5px 15px 22.5px;
+
+                h2 {
+                    font-family: 'Days One', sans-serif;
+                    @include font-params (400, 20px, 25px, 0.016em);
+                    text-align: center;
+                    margin: 0;
+                    margin-bottom: 5px;
+                }
+
+                >div {
+                    @include flex-params (row, space-between, baseline);
+                    margin-bottom: 10px;
+
+                    p {
+                        @include font-params (900, 16px, 22px, 0.05em);
+                        color: #221F63;
+
+                        &:first-child {
+                            &::before {
+                                content: '';
+                                display: inline-block;
+                                width: 24px;
+                                height: 24px;
+                                background: url('../../../public/images/main/icon-likes.svg') no-repeat center;
+                                vertical-align: middle;
+                            }
+                        }
+
+                        &:last-child {
+                            @include font-params (900, 36px, 49px, 0.05em);
+                            color: #FC8000;
+                        }
+
+                    }
+                }
+
+                a {
+                    display: block;
+                    text-align: center;
+                    width: 281px;
+                    height: 63px;
+                    padding-top: 19px;
+                    background: #FC8000;
+                    border-radius: 10px;
+                    @include font-params (700, 18px, 25px, 0.05em);
+                    color: #fff;
+                }
+            }
         }
     }
 
-    //
+    .ymaps-2-1-79-balloon__tail {
+        width: 67px;
+        height: 67px;
+        display: block;
+        position: absolute;
+        box-shadow: none;
+        background: none;
 
+        &::after {
+            width: 67px;
+            height: 67px;
+            left: 50px;
+        }
+    }
 }
