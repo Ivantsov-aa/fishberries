@@ -1,6 +1,5 @@
 import React from 'react';
 import { YMaps, Map, Clusterer, Placemark } from 'react-yandex-maps';
-import { Link } from 'react-router-dom';
 
 import AdsBlock from './ads-block';
 import FishingPlace from './fishing-block';
@@ -617,7 +616,7 @@ class Main extends React.Component {
 
     render() {
         const { filterState, filterArray } = this.state;
-        const { arrayPlaces } = this.props;
+        const { arrayPlaces, innerWidth } = this.props;
 
         return (
             <>
@@ -640,8 +639,8 @@ class Main extends React.Component {
                     <section className='main__fishing-places'>
                         <div className='fishing-places__title'>
                             <button className={`filter-button ${filterState ? 'open' : ''}`} onClick={this.handleFilterClick}>Фильтр</button>
-                            <h2>Выбрать место для рыбалки</h2>
                             <div>
+                                <h2>Выбрать место для рыбалки</h2>
                                 <button className='filter-arrow up'></button>
                                 <button className='filter-arrow down'></button>
                                 <p>По расстоянию</p>
@@ -664,7 +663,7 @@ class Main extends React.Component {
                                 </section>
                             }
                             <div>
-                                <FishingPlace filterState={filterState} arrayPlaces={arrayPlaces} />
+                                <FishingPlace filterState={filterState} arrayPlaces={arrayPlaces} innerWidth={innerWidth} />
                             </div>
                         </div>
                         <button className='show-more'>Показать ещё...</button>
@@ -675,7 +674,7 @@ class Main extends React.Component {
                         <div className='map__wrapper'>
                             <YMaps>
                                 <Map
-                                    defaultState={{ center: [55.813461, 37.531548], zoom: 9 }}
+                                    defaultState={{ center: [55.813461, 37.531548], zoom: 7 }}
                                     width='100%'
                                     height='100%'
                                     onLoad={this.createTemplateLayoutFactory}
@@ -683,8 +682,9 @@ class Main extends React.Component {
                                 >
                                     <Clusterer
                                         options={{
-                                            preset: 'islands#invertedVioletClusterIcons',
-                                            groupByCoordinates: false
+                                            iconLayout: `<div class='clusterer__wrapper'></div>`,
+                                            iconImageSize: [123, 123],
+                                            gridSize: 250
                                         }}
                                     >
                                         {arrayPlaces.map(place => (
@@ -704,17 +704,24 @@ class Main extends React.Component {
                                                             </div>
                                                             <a href=${`/places/${place.path}`}>Подробнеe</a>
                                                         </div>
-                                                    `
+                                                    `,
+                                                    iconContent: `
+                                                        <div class='placemark__container'>
+                                                            <img src='./images/main/placemark-pic.png' alt='placemark' />
+                                                            <div class='placemark__content'>
+                                                                <h2>${place.title}</h2>
+                                                                <div>
+                                                                    <p>${place.likesCount}</p>
+                                                                    <p>от ${place.price} ₽</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    `,
                                                 }}
                                                 options={{
                                                     iconLayout: 'default#imageWithContent',
-                                                    iconImageHref: './images/main/placemark-pic.png',
-                                                    iconImageSize: [68, 68],
-                                                    iconContentLayou: `
-                                                    <div class='placemark-container'>
-                                                        <img src='./images/main/placemark-pic.png' alt='placemark' />
-                                                    </div>
-                                                `,
+                                                    iconImageHref: '',
+                                                    iconImageSize: [324, 68],
                                                     hideIconOnBalloonOpen: false
                                                 }}
                                             />

@@ -5,6 +5,11 @@ $link_color: #221F63;
     margin: auto;
 }
 
+@mixin block-pos-laptop {
+    max-width: 1034px;
+    margin: auto;
+}
+
 // @mixin block-pos-laptop {
 //     max-width: 924px;
 //     margin: 0 auto auto;

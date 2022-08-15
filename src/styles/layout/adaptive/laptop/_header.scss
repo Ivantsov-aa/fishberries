@@ -1,0 +1,126 @@
+@media only screen and (max-width: 1320px) and (min-width: 480px) {
+    header {
+
+        .header__mail-row {
+            p {
+                @include block-pos-laptop;
+                @include font-params (700, 20px, 150%, 0.05em);
+
+                &::before {
+                    content: '';
+                    display: inline-block;
+                    width: 24px;
+                    height: 24px;
+                    margin-right: 5px;
+                }
+            }
+        }
+
+        .header__nav {
+            @include block-pos-laptop;
+            position: relative;
+
+            nav {
+                display: none;
+            }
+
+            .private-area__button {
+                display: none;
+            }
+
+            .header_buttons {
+                display: none;
+            }
+        }
+
+        .hamburger-button {
+            display: block;
+            outline: none;
+
+            span {
+                display: block;
+                width: 64px;
+                height: 4px;
+                margin-bottom: 13px;
+                background-color: #204BDB;
+                border-radius: 10px;
+                transition: transform .4s;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+
+            &.open {
+                span:nth-of-type(1) {
+                    transform: rotate(45deg) translate(13px, 11px);
+                }
+
+                span:nth-of-type(2) {
+                    opacity: 0;
+                }
+
+                span:nth-of-type(3) {
+                    transform: rotate(-45deg) translate(12px, -12px);
+                }
+            }
+        }
+
+        .hamburger-menu {
+            z-index: 10;
+            display: none;
+            position: absolute;
+            top: 104px;
+            right: 0;
+            width: 254px;
+            background-color: #fff;
+            padding: 25px 0 40px;
+            text-align: center;
+
+            &.open {
+                @include flex-params (column, flex-start, center);
+            }
+
+            .private-area__button {
+                display: block;
+            }
+
+            .header_buttons {
+                display: block;
+                padding: 0;
+
+                a {
+                    width: 148px;
+                    margin: auto;
+
+                    &.authorization {
+                        padding: 19px 0;
+                        margin-bottom: 30px;
+                    }
+
+                    &.registration {
+                        width: 184px;
+                        padding: 19px 0;
+                    }
+                }
+            }
+
+            li {
+                margin-bottom: 30px;
+
+                a {
+                    @include font-params (700, 24px, 36px, 0.05em);
+
+                    &:hover {
+                        color: #DB0BC0;
+                        border-bottom: #DB0BC0 2px solid;
+                    }
+                }
+
+                &:last-child {
+                    margin-bottom: 20px;
+                }
+            }
+        }
+    }
+}

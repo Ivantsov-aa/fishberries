@@ -2,7 +2,19 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 class Header extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            stateHamburgerMenu: false
+        }
+    };
+
+    handleHamburgerButtonClick = () => {
+        this.setState({ stateHamburgerMenu: !this.state.stateHamburgerMenu });
+    }
+
     render() {
+        const { stateHamburgerMenu } = this.state;
         const { authUser, isLogged } = this.props;
 
         return (
@@ -30,6 +42,26 @@ class Header extends React.Component {
                             <Link to='/registration' className='registration'>Регистрация</Link>
                         </div>
                     }
+                    <button className={`hamburger-button ${stateHamburgerMenu ? 'open' : ''}`} onClick={this.handleHamburgerButtonClick}>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    <div className={`hamburger-menu ${stateHamburgerMenu ? 'open' : ''}`}>
+                        <ul>
+                            <li><Link to='/'>Домой</Link></li>
+                            <li><Link to='/subscription'>Подписка</Link></li>
+                            <li><Link to='/contact'>Контакт</Link></li>
+                        </ul>
+                        {isLogged ?
+                            <Link to={`/profile/${authUser.userId}/cabinet`} className='private-area__button'>{authUser.name ? authUser.name : authUser.login}</Link>
+                            :
+                            <div className='header_buttons'>
+                                <Link to='/auth' className='authorization'>Войти</Link>
+                                <Link to='/registration' className='registration'>Регистрация</Link>
+                            </div>
+                        }
+                    </div>
                 </div>
             </header>
         )

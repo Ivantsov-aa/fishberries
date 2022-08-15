@@ -21,8 +21,13 @@ const App = () => {
   const [isLogged, setStateLogged] = useState(false);
   const [authUser, setAuthUser] = useState(null);
   const [stateDeletePopUp, setStateDeletePopUp] = useState(false);
+  const [innerWidth, setInnerWidth] = useState(null);
   const location = useLocation();
   const navigate = useNavigate();
+
+  let resizeWindow = () => {
+    setInnerWidth(window.innerWidth);
+  }
 
   const userIdLS = localStorage.getItem('userId');
 
@@ -30,6 +35,7 @@ const App = () => {
   if (arrayUsers === null) arrayUsers = [];
 
   useEffect(() => {
+    window.addEventListener('resize', resizeWindow);
     let arrayUsers = JSON.parse(localStorage.getItem('users'));
     if (arrayUsers === null) arrayUsers = [];
 
@@ -39,7 +45,9 @@ const App = () => {
         setStateLogged(true);
       }
       return user;
-    })
+    });
+    return () => window.removeEventListener("resize", resizeWindow);
+
   }, [])
 
   const handleLogIn = (data) => {
@@ -103,7 +111,7 @@ const App = () => {
   return (
     <div className='container'>
       <Routes>
-        <Route path='*' element={<Wrapper isLogged={isLogged} authUser={authUser} arrayPlaces={arrayPlaces} location={location.pathname} />} />
+        <Route path='*' element={<Wrapper isLogged={isLogged} authUser={authUser} arrayPlaces={arrayPlaces} location={location.pathname} innerWidth={innerWidth} />} />
         <Route path='/registration' element={<RegistrationType />} />
         <Route path='/registration/form' element={<RegistrationPage userId={userId} location={location.pathname} registrationSubmit={registrationSubmit} />} />
         <Route path='/auth' element={<AuthorizationPage navigate={navigate} handleLogIn={handleLogIn} />} />
