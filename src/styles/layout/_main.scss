@@ -27,6 +27,7 @@ main {
                     height: 63px;
                     border-radius: 10px;
                     border: 1px solid #204BDB;
+                    padding-right: 148px;
                     padding-left: 18px;
                     @include font-params (700, 18px, 25px, 0.05em);
 
@@ -92,6 +93,10 @@ main {
                 display: flex;
                 align-items: center;
 
+                div {
+                    display: flex;
+                }
+                
                 .filter-arrow {
                     width: 24px;
                     height: 24px;

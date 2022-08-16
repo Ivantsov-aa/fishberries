@@ -21,7 +21,7 @@ const App = () => {
   const [isLogged, setStateLogged] = useState(false);
   const [authUser, setAuthUser] = useState(null);
   const [stateDeletePopUp, setStateDeletePopUp] = useState(false);
-  const [innerWidth, setInnerWidth] = useState(null);
+  const [innerWidth, setInnerWidth] = useState(window.innerWidth);
   const location = useLocation();
   const navigate = useNavigate();
 

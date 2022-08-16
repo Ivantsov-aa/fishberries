@@ -8,3 +8,13 @@
         @include font-params (400, 48px, 65px, 0.05em);
     }
 }
+
+@media only screen and (max-width: 1023px) and (min-width: 311px) {
+    .ads-block {
+        height: 133px;
+    
+        h2 {
+            padding-top: 34px;
+        }
+    }
+}

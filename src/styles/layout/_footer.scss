@@ -1,12 +1,7 @@
 footer {
     @include block-pos;
-    padding: 48px 0;
+    padding: 59.5px 0;
     @include flex-params (row, space-between, center);
-
-    .logo {
-        display: flex;
-        align-items: center;
-    }
 
     nav {
         ul {
@@ -17,10 +12,8 @@ footer {
 
                 a {
                     @include font-params (400, 16px, 150%, 0.05em);
-                }
 
-                &:nth-child(2) {
-                    a {
+                    &:hover {
                         color: #DB0BC0;
                     }
                 }
@@ -30,5 +23,10 @@ footer {
                 }
             }
         }
+    }
+
+    p {
+        @include font-params (400, 16px, 150%, 0.05em);
+        color: $link_color;
     }
 }

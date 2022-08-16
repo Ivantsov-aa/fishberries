@@ -3,6 +3,7 @@ import { YMaps, Map, Clusterer, Placemark } from 'react-yandex-maps';
 
 import AdsBlock from './ads-block';
 import FishingPlace from './fishing-block';
+import FishingSlider from './fishing-slider';
 import Footer from './footer';
 
 class Main extends React.Component {
@@ -617,7 +618,7 @@ class Main extends React.Component {
     render() {
         const { filterState, filterArray } = this.state;
         const { arrayPlaces, innerWidth } = this.props;
-
+        console.log(innerWidth);
         return (
             <>
                 <main>
@@ -631,7 +632,7 @@ class Main extends React.Component {
                             </p>
                             <div>
                                 <input type='text' placeholder='Город, область, место' />
-                                <button>Найти</button>
+                                {innerWidth >= 1024 ? <button>Найти</button> : <button></button>}
                             </div>
                         </section>
                     </div>
@@ -641,9 +642,11 @@ class Main extends React.Component {
                             <button className={`filter-button ${filterState ? 'open' : ''}`} onClick={this.handleFilterClick}>Фильтр</button>
                             <div>
                                 <h2>Выбрать место для рыбалки</h2>
-                                <button className='filter-arrow up'></button>
-                                <button className='filter-arrow down'></button>
-                                <p>По расстоянию</p>
+                                <div>
+                                    <button className='filter-arrow up'></button>
+                                    <button className='filter-arrow down'></button>
+                                    <p>По расстоянию</p>
+                                </div>
                             </div>
                         </div>
                         <div className='fishing-places__list'>
@@ -662,9 +665,15 @@ class Main extends React.Component {
                                     ))}
                                 </section>
                             }
-                            <div>
-                                <FishingPlace filterState={filterState} arrayPlaces={arrayPlaces} innerWidth={innerWidth} />
-                            </div>
+                            {innerWidth >= 1024 ?
+                                <div>
+                                    <FishingPlace filterState={filterState} arrayPlaces={arrayPlaces} innerWidth={innerWidth} />
+                                </div>
+                                :
+                                <div>
+                                    <FishingSlider arrayPlaces={arrayPlaces} />
+                                </div>
+                            }
                         </div>
                         <button className='show-more'>Показать ещё...</button>
                     </section>

@@ -10,15 +10,10 @@ $link_color: #221F63;
     margin: auto;
 }
 
-// @mixin block-pos-laptop {
-//     max-width: 924px;
-//     margin: 0 auto auto;
-// }
-
-// @mixin block-pos-mobile {
-//     max-width: 330px;
-//     margin: 0 auto auto;
-// }
+@mixin block-pos-mobile {
+    max-width: 311px;
+    margin: auto;
+}
 
 @mixin font-params ($weight, $size, $line-height, $spacing) {
     font-weight: $weight;
