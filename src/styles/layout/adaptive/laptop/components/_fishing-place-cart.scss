@@ -1,4 +1,4 @@
-@media only screen and (max-width: 1320px) and (min-width: 480px) {
+@media only screen and (max-width: 1320px) and (min-width: 1024px) {
     .fishing-place__cart {
         @include flex-params (row, space-between, top);
         padding: 15px;
@@ -20,6 +20,10 @@
             .fishing-place__desc {
                 max-width: 412px;
                 margin-bottom: 20px;
+
+                h3 {
+                    text-align: center;
+                }
 
                 .desc_footer {
                     @include flex-params (row, space-between, center);

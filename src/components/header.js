@@ -48,19 +48,21 @@ class Header extends React.Component {
                         <span></span>
                     </button>
                     <div className={`hamburger-menu ${stateHamburgerMenu ? 'open' : ''}`}>
-                        <ul>
-                            <li><Link to='/'>Домой</Link></li>
-                            <li><Link to='/subscription'>Подписка</Link></li>
-                            <li><Link to='/contact'>Контакт</Link></li>
-                        </ul>
-                        {isLogged ?
-                            <Link to={`/profile/${authUser.userId}/cabinet`} className='private-area__button'>{authUser.name ? authUser.name : authUser.login}</Link>
-                            :
-                            <div className='header_buttons'>
-                                <Link to='/auth' className='authorization'>Войти</Link>
-                                <Link to='/registration' className='registration'>Регистрация</Link>
-                            </div>
-                        }
+                        <div>
+                            <ul>
+                                <li><Link to='/' onClick={this.handleHamburgerButtonClick}>Домой</Link></li>
+                                <li><Link to='/subscription' onClick={this.handleHamburgerButtonClick}>Подписка</Link></li>
+                                <li><Link to='/contact' onClick={this.handleHamburgerButtonClick}>Контакт</Link></li>
+                            </ul>
+                            {isLogged ?
+                                <Link to={`/profile/${authUser.userId}/cabinet`} className='private-area__button'>{authUser.name ? authUser.name : authUser.login}</Link>
+                                :
+                                <div className='header_buttons'>
+                                    <Link to='/auth' className='authorization'>Войти</Link>
+                                    <Link to='/registration' className='registration'>Регистрация</Link>
+                                </div>
+                            }
+                        </div>
                     </div>
                 </div>
             </header>

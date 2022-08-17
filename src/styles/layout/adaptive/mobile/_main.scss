@@ -44,6 +44,7 @@
         .main__fishing-places {
             padding: 10px 0 23px;
             @include block-pos-mobile;
+            position: relative;
 
             .fishing-places__title {
                 flex-direction: column;
@@ -53,17 +54,23 @@
                     @include font-params (400, 16px, 20px, 0.016em);
 
                     &.filter-button {
-                        margin-bottom: 21px;
+                        display: block;
+                        height: 40px;
+                        z-index: 15;
+                        width: 100%;
 
                         &.open {
                             position: relative;
+                            padding: 0 15px;
+                            text-align: left;
 
                             &::after {
                                 position: absolute;
                                 content: '';
                                 display: inline-block;
-                                bottom: 2px;
-                                right: -24px;
+                                bottom: 50%;
+                                transform: translateY(50%);
+                                right: 15px;
                                 width: 14px;
                                 height: 14px;
                             }
@@ -92,12 +99,28 @@
             .fishing-places__list {
                 text-align: start;
                 @include flex-params (row, space-between, flex-start);
+                margin-bottom: 30px;
 
                 .fishing-places__filter {
-                    padding: 15px;
-                    border: 1px solid #CBD2E0;
-                    border-radius: 10px;
-                    margin-right: 20px;
+                    display: block;
+                    border: none;
+                    border-radius: 0;
+                    margin: 0;
+                    padding: 0;
+                    position: absolute;
+                    top: 40px;
+                    width: 100%;
+                    height: 100%;
+                    background-color: #fff;
+                    z-index: 10;
+                    max-width: 0;
+                    overflow: hidden;
+                    transition: max-width 0.25s ease-out;
+
+                    &.show {
+                        max-width: 100%;
+                        padding: 15px;
+                    }
 
                     .filter-category {
                         font-family: 'Days One', sans-serif;
@@ -116,26 +139,41 @@
                             display: inline-block;
                             width: 24px;
                             height: 24px;
+                            transform: rotate(-90deg);
                         }
                     }
 
-                    .filter-subcategory {
-                        padding-left: 22px;
-                        @include font-params (700, 18px, 25px, 0.016em);
-                        color: $link_color;
-                        margin-bottom: 10px;
-                        position: relative;
-                        width: 270px;
-
-                        &::after {
-                            content: '';
+                    >div {
+                        >div {
                             position: absolute;
-                            top: 0;
-                            right: -22px;
-                            display: inline-block;
-                            width: 24px;
-                            height: 24px;
-                            transform: rotate(180deg);
+                            background-color: #fff;
+                            z-index: 15;
+
+                            .filter-subcategory {
+                                display: block;
+                                padding-left: 0;
+                                @include font-params (700, 18px, 25px, 0.016em);
+                                color: $link_color;
+                                margin-bottom: 10px;
+                                width: 0;
+                                overflow: hidden;
+                                transition: width 0.15s ease-out;
+
+                                &.show {
+                                    width: 100%;
+                                }
+                                
+                                &::after {
+                                    content: '';
+                                    position: absolute;
+                                    top: 0;
+                                    right: -22px;
+                                    display: inline-block;
+                                    width: 24px;
+                                    height: 24px;
+                                    transform: rotate(90deg);
+                                }
+                            }
                         }
                     }
                 }
@@ -253,7 +291,7 @@
 
         .map__wrapper {
             width: 100%;
-            height: 700px;
+            height: 500px;
 
         }
     }

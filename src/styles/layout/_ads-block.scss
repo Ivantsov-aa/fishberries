@@ -12,8 +12,10 @@
 @media only screen and (max-width: 1023px) and (min-width: 311px) {
     .ads-block {
         height: 133px;
-    
+
         h2 {
+            @include font-params (400, 34px, 65px, 0.05em);
+            font-family: 'Nunito Sans', sans-serif;
             padding-top: 34px;
         }
     }

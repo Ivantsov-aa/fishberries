@@ -650,21 +650,20 @@ class Main extends React.Component {
                             </div>
                         </div>
                         <div className='fishing-places__list'>
-                            {
-                                filterState &&
-                                <section className='fishing-places__filter'>
-                                    {filterArray.map((filterName, i) => (
-                                        <div key={i}>
-                                            <p className='filter-category' data-value={filterName.name} onClick={this.handleSubcategoriesClick}>
-                                                {filterName.name}
-                                            </p>
-                                            {filterName.selected && filterName.subcategories.map((subcategory, i) => (
-                                                <p className='filter-subcategory' key={i}>{subcategory.name}</p>
+                            <section className={`fishing-places__filter ${filterState ? 'show' : ''}`}>
+                                {filterArray.map((filterName, i) => (
+                                    <div key={i}>
+                                        <p className='filter-category' data-value={filterName.name} onClick={this.handleSubcategoriesClick}>
+                                            {filterName.name}
+                                        </p>
+                                        <div>
+                                            {filterName.subcategories.map((subcategory, i) => (
+                                                <p className={`filter-subcategory ${filterName.selected ? 'show' : ''}`} key={i}>{subcategory.name}</p>
                                             ))}
                                         </div>
-                                    ))}
-                                </section>
-                            }
+                                    </div>
+                                ))}
+                            </section>
                             {innerWidth >= 1024 ?
                                 <div>
                                     <FishingPlace filterState={filterState} arrayPlaces={arrayPlaces} innerWidth={innerWidth} />

@@ -12,6 +12,7 @@
     h2 {
         @include font-params (400, 50px, 170%, 0.016em);
         text-transform: capitalize;
+        text-align: center;
     }
 
     ul {
@@ -38,10 +39,15 @@
     }
 
     .faq__wrapper {
-        display: grid;
-        grid-template-columns: 570px 570px;
+        display: flex;
         grid-gap: 30px;
         margin-bottom: 18px;
+        flex-wrap: wrap;
+
+        >div {
+            margin: auto;
+            width: 570px;
+        }
 
         .faq__container {
             padding: 12px;

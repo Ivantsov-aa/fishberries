@@ -70,18 +70,30 @@
 
         .hamburger-menu {
             z-index: 10;
-            display: none;
             position: absolute;
+            display: block;
             top: 93px;
             right: 0;
             width: 100%;
+            height: 0;
             background-color: #fff;
-            padding: 25px 0 40px;
             text-align: center;
             border-radius: 0 0 10px 10px;
+            transition: height 0.25s ease-out;
 
             &.open {
                 @include flex-params (column, flex-start, center);
+                height: 409px;
+
+                >div {
+                    max-height: 409px;
+                }
+            }
+
+            >div {
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.25s ease-out;
             }
 
             .private-area__button {
@@ -91,13 +103,13 @@
             .header_buttons {
                 display: block;
                 padding: 0;
-
                 a {
                     width: 148px;
                     margin: auto;
 
                     &.authorization {
                         padding: 19px 0;
+                        margin: auto;
                         margin-bottom: 30px;
                     }
 
@@ -108,20 +120,23 @@
                 }
             }
 
-            li {
-                margin-bottom: 30px;
+            ul {
+                display: block;
+                li {
+                    margin-bottom: 30px;
 
-                a {
-                    @include font-params (700, 24px, 36px, 0.05em);
+                    a {
+                        @include font-params (700, 24px, 36px, 0.05em);
 
-                    &:hover {
-                        color: #DB0BC0;
-                        border-bottom: #DB0BC0 2px solid;
+                        &:hover {
+                            color: #DB0BC0;
+                            border-bottom: #DB0BC0 2px solid;
+                        }
                     }
-                }
 
-                &:last-child {
-                    margin-bottom: 20px;
+                    &:last-child {
+                        margin-bottom: 20px;
+                    }
                 }
             }
         }

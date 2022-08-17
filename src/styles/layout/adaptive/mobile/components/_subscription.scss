@@ -1,0 +1,59 @@
+@media only screen and (max-width: 1023px) and (min-width: 311px) {
+    .subscription {
+        padding: 0;
+        background: #fff;
+
+        >div {
+            grid-template-columns: 311px;
+            grid-gap: 14px;
+            width: 311px;
+        }
+
+        .subscription__container {
+            padding: 34px 15px;
+            @include flex-params (column, flex-start, center);
+            color: $link_color;
+            border: 1px solid #CBD2E0;
+
+            img {
+                width: 196px;
+                margin-bottom: 8px;
+            }
+
+            p {
+                @include font-params (400, 16px, 170%, 0.05em);
+                margin-bottom: 8px;
+            }
+
+            ul {
+                margin-bottom: 16px;
+
+                li {
+                    margin: 0;
+                    line-height: 22px;
+                    @include font-params (400, 12px, 16px, 0.05em);
+
+                    span {
+                        font-weight: 800;
+                    }
+                }
+
+                p {
+                    padding-left: 0;
+                    @include font-params (800, 14px, 19px, 0.05em);
+                    margin-bottom: 4px;
+                }
+            }
+
+            button {
+                width: 225px;
+                height: 63px;
+                background: #FC8000;
+                border-radius: 10px;
+                color: #fff;
+                @include font-params (700, 18px, 25px, 0.05em);
+            }
+        }
+
+    }
+}

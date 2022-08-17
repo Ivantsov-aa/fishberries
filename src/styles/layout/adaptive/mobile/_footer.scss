@@ -1,3 +1,17 @@
 footer {
     @include block-pos-laptop;
+    flex-direction: column;
+    padding: 23.5px 0;
+
+    nav {
+        ul {
+            flex-direction: column;
+            align-items: center;
+
+            li {
+                margin: 0;
+                margin-bottom: 5px;
+            }
+        }
+    }
 }
