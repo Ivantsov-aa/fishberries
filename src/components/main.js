@@ -4,6 +4,7 @@ import { YMaps, Map, Clusterer, Placemark } from 'react-yandex-maps';
 import AdsBlock from './ads-block';
 import FishingPlace from './fishing-block';
 import FishingSlider from './fishing-slider';
+import FilterPlaces from './filter-places';
 import Footer from './footer';
 
 class Main extends React.Component {
@@ -594,6 +595,18 @@ class Main extends React.Component {
                 }
             ]
         };
+
+        this.wrapperRef = React.createRef();
+        this.setWrapperRef = this.setWrapperRef.bind(this);
+        this.handleClickOutside = this.handleClickOutside.bind(this);
+    }
+
+    componentDidMount() {
+        document.addEventListener('mousedown', this.handleClickOutside);
+    }
+
+    componentWillUnmount() {
+        document.removeEventListener('mousedown', this.handleClickOutside);
     }
 
     handleFilterClick = () => {
@@ -615,13 +628,23 @@ class Main extends React.Component {
         this.setState({ filterArray: chosenCategory });
     }
 
+    setWrapperRef(node) {
+        this.wrapperRef = node;
+    }
+
+    handleClickOutside(event) {
+        if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
+            this.setState({ filterState: false });
+        }
+    }
+
     render() {
         const { filterState, filterArray } = this.state;
         const { arrayPlaces, innerWidth } = this.props;
-        console.log(innerWidth);
+
         return (
             <>
-                <main>
+                <main className={filterState ? 'disable' : ''}>
                     <div className='main__title-wrapper'>
                         <section className='main__title'>
                             <h1>
@@ -650,19 +673,9 @@ class Main extends React.Component {
                             </div>
                         </div>
                         <div className='fishing-places__list'>
-                            <section className={`fishing-places__filter ${filterState ? 'show' : ''}`}>
-                                {filterArray.map((filterName, i) => (
-                                    <div key={i}>
-                                        <p className='filter-category' data-value={filterName.name} onClick={this.handleSubcategoriesClick}>
-                                            {filterName.name}
-                                        </p>
-                                        <div>
-                                            {filterName.subcategories.map((subcategory, i) => (
-                                                <p className={`filter-subcategory ${filterName.selected ? 'show' : ''}`} key={i}>{subcategory.name}</p>
-                                            ))}
-                                        </div>
-                                    </div>
-                                ))}
+                            <section className={`fishing-places__filter ${filterState ? 'show' : ''}`} ref={innerWidth < 1024 ? this.setWrapperRef : null}>
+                                {innerWidth < 1024 && <button className='filter_title' onClick={this.handleFilterClick}>Фильтр</button>}
+                                {filterState && <FilterPlaces filterArray={filterArray} handleSubcategoriesClick={this.handleSubcategoriesClick} />}
                             </section>
                             {innerWidth >= 1024 ?
                                 <div>

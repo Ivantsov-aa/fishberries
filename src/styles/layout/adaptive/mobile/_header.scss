@@ -1,5 +1,10 @@
 @media only screen and (max-width: 1023px) and (min-width: 311px) {
     header {
+        position: fixed;
+        width: 100%;
+        background-color: #fff;
+        z-index: 100;
+
         .header__mail-row {
             p {
                 @include block-pos-mobile;

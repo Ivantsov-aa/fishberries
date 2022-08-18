@@ -14,6 +14,7 @@
 @import 'layout/main';
 @import 'layout/components/place-cart';
 @import 'layout/components/fishing-place-cart';
+@import 'layout/components/comments';
 @import 'layout/components/subscription';
 @import 'layout/components/contact';
 @import 'layout/ads-block';
@@ -27,11 +28,14 @@
 
 @import 'layout/adaptive/laptop/header';
 @import 'layout/adaptive/laptop/main';
+@import 'layout/adaptive/laptop/components/place-cart';
 @import 'layout/adaptive/laptop/components/fishing-place-cart';
 @import 'layout/adaptive/laptop/footer';
 
 @import 'layout/adaptive/mobile/header';
 @import 'layout/adaptive/mobile/main';
+@import 'layout/adaptive/mobile/components/place-cart';
+@import 'layout/adaptive/mobile/components/calendar-mobile';
 @import 'layout/adaptive/mobile/components/fishing-place-cart';
 @import 'layout/adaptive/mobile/components/subscription';
 @import 'layout/adaptive/mobile/components/contact';

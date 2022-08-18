@@ -1,0 +1,160 @@
+.stocking_table {
+    background: #EDF0F7;
+    padding: 20px 0 32px;
+
+    section {
+        margin-bottom: 10px;
+    }
+
+    .day {
+        margin-bottom: 10px;
+
+        .slick-track {
+            left: 8px;
+        }
+
+        .slick-slider {
+            .slick-list {
+                .slick-slide {
+                    width: 55px !important;
+                    margin: 0 2px;
+                    text-align: left;
+
+                    p {
+                        @include font-params (400, 30px, 51px, 0.016em);
+                        height: 100%;
+                        width: 45px;
+
+                    }
+
+                    &.slick-active ~.slick-slide {
+                        text-align: right;
+                    }
+
+                    &.slick-active ~.slick-active {
+                        text-align: left;
+                    }
+
+                    &.slick-active {
+                        text-align: left;
+    
+                        &.slick-center {
+                            text-align: center !important;
+                        }
+    
+                        &.slick-center~.slick-active {
+                            text-align: right;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .month {
+        height: 24px;
+        margin-bottom: 10px;
+
+        .slick-slider {
+            .slick-list {
+                height: 24px !important;
+
+                .slick-track {
+                    height: 24px !important;
+                }
+
+                .slick-slide {
+                    width: 93.5px !important;
+
+                    p {
+                        text-transform: capitalize;
+                    }
+
+                    &.slick-active {
+                        text-align: left;
+                        margin-left: 10px;
+
+                        &.slick-center {
+                            text-align: center !important;
+                            margin: 0 10px;
+                        }
+
+                        &.slick-center~.slick-active {
+                            text-align: right;
+                            margin: 0;
+                            margin-right: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .year {
+        height: 24px;
+        margin-bottom: 10px;
+
+        .slick-slider {
+            .slick-list {
+                height: 24px !important;
+                position: relative;
+
+                .slick-track {
+                    height: 24px !important;
+                    left: -7px;
+                }
+
+                .slick-slide {
+                    width: 51px !important;
+                    margin: 0 6.5px;
+
+                    &.slick-active {
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+
+
+    .slick-slider {
+        width: 311px;
+
+        &:first-child {
+            .slick-list {
+                height: 43px;
+
+                .slick-track {
+                    height: 43px;
+                }
+            }
+        }
+
+        p {
+            color: #A0ABC0;
+            font-family: 'Days One', sans-serif;
+            @include font-params (400, 18px, 23px, 0.016em);
+        }
+
+        .slick-center {
+            p {
+                color: #FC8000;
+            }
+        }
+
+        .slick-list {
+            height: 24px;
+            width: 311px;
+            padding: 0 !important;
+
+            .slick-track {
+                height: 24px;
+            }
+
+            .slick-slide {
+                text-align: center;
+                width: 61px !important;
+            }
+        }
+    }
+}

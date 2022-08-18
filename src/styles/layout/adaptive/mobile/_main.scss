@@ -1,5 +1,21 @@
 @media only screen and (max-width: 1023px) and (min-width: 311px) {
     main {
+        padding-top: 95px;
+
+        &.disable {
+            &::after {
+                content: '';
+                position: fixed;
+                width: 100%;
+                height: 100vh;
+                top: 0;
+                mix-blend-mode: multiply;
+                background-color: #A0ABC0;
+                z-index: 100;
+                box-shadow: inset 0 0 8px 6px rgba(255, 255, 255, 1);
+            }
+        }
+
         .main__title-wrapper {
             background: url('../../../../../public/images/main/main-mobile-bg.png') no-repeat center;
             background-size: cover;
@@ -44,7 +60,6 @@
         .main__fishing-places {
             padding: 10px 0 23px;
             @include block-pos-mobile;
-            position: relative;
 
             .fishing-places__title {
                 flex-direction: column;
@@ -60,19 +75,9 @@
                         width: 100%;
 
                         &.open {
-                            position: relative;
-                            padding: 0 15px;
-                            text-align: left;
 
                             &::after {
-                                position: absolute;
-                                content: '';
-                                display: inline-block;
-                                bottom: 50%;
-                                transform: translateY(50%);
-                                right: 15px;
-                                width: 14px;
-                                height: 14px;
+                                content: none;
                             }
                         }
                     }
@@ -107,27 +112,55 @@
                     border-radius: 0;
                     margin: 0;
                     padding: 0;
-                    position: absolute;
-                    top: 40px;
-                    width: 100%;
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 280px;
                     height: 100%;
                     background-color: #fff;
-                    z-index: 10;
+                    z-index: 150;
                     max-width: 0;
                     overflow: hidden;
                     transition: max-width 0.25s ease-out;
 
                     &.show {
                         max-width: 100%;
-                        padding: 15px;
+                        padding-bottom: 15px;
+                        overflow: scroll;
+                        box-shadow: 0 0 8px 6px rgba(0, 0, 0, 0.5);
+
+                        &::-webkit-scrollbar {
+                            display: none;
+                        }
+                    }
+
+                    .filter_title {
+                        font-family: 'Days One', sans-serif;
+                        @include font-params (400, 18px, 18px, 0.016em);
+                        background-color: #DB0BC0;
+                        color: #fff;
+                        width: 100%;
+                        padding: 15px 0;
+                        margin-bottom: 15px;
+
+                        &::after {
+                            content: '';
+                            display: inline-block;
+                            width: 14px;
+                            height: 14px;
+                            vertical-align: middle;
+                            margin-left: 10px;
+                            background: url('../../../../../public/images/main/mobile-filter-cloce-icon.svg') no-repeat center;
+                        }
                     }
 
                     .filter-category {
+                        padding: 0 10px;
                         font-family: 'Days One', sans-serif;
                         color: #FC8000;
                         margin-bottom: 10px;
-                        @include font-params (400, 18px, 23px, 0.016em);
-                        width: 292px;
+                        @include font-params (400, 14px, 20px, 0.016em);
+                        width: 100%;
                         position: relative;
                         cursor: pointer;
 
@@ -135,7 +168,7 @@
                             content: '';
                             position: absolute;
                             top: 0;
-                            right: 0;
+                            right: 3px;
                             display: inline-block;
                             width: 24px;
                             height: 24px;
@@ -151,8 +184,8 @@
 
                             .filter-subcategory {
                                 display: block;
-                                padding-left: 0;
-                                @include font-params (700, 18px, 25px, 0.016em);
+                                padding-left: 10px;
+                                @include font-params (700, 14px, 20px, 0.016em);
                                 color: $link_color;
                                 margin-bottom: 10px;
                                 width: 0;
@@ -162,12 +195,12 @@
                                 &.show {
                                     width: 100%;
                                 }
-                                
+
                                 &::after {
                                     content: '';
                                     position: absolute;
                                     top: 0;
-                                    right: -22px;
+                                    right: 2px;
                                     display: inline-block;
                                     width: 24px;
                                     height: 24px;

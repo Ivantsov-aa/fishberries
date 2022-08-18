@@ -16,7 +16,7 @@ class Wrapper extends React.Component {
                 <Header isLogged={isLogged} authUser={authUser} />
                     <Routes>
                         <Route path='/' element={<Main arrayPlaces={arrayPlaces} innerWidth={innerWidth} />} />
-                        <Route path='/places/:place' element={<PlaceCart arrayPlaces={arrayPlaces} location={location} />} />
+                        <Route path='/places/:place' element={<PlaceCart arrayPlaces={arrayPlaces} location={location} innerWidth={innerWidth} />} />
                         <Route path='/subscription' element={<Subscription />} />
                         <Route path='/contact' element={<Contact />} />
                     </Routes>

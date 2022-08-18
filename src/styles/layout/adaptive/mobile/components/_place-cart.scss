@@ -1,0 +1,487 @@
+@media only screen and (max-width: 1023px) and (min-width: 311px) {
+    .place-cart__wrapper {
+        padding-top: 95px;
+
+        section {
+            flex-direction: column;
+
+            .place-cart__photo {
+                @include flex-params (row, flex-start, center);
+                margin-right: 0;
+                margin-bottom: 18px;
+                width: 100%;
+                height: 322px;
+
+                img {
+                    width: 100%;
+                    height: 322px;
+                    margin: 0;
+
+                    &:last-child {
+                        width: 100%;
+                        margin: 0;
+                    }
+                }
+
+                .slick-slider {
+                    width: 100%;
+
+                    .slick-list {
+                        height: 322px;
+                        width: 100%;
+
+                        .slick-track {
+                            height: 322px;
+                        }
+
+                        .slick-slide {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+
+            .place-cart__description {
+                @include block-pos-mobile;
+                @include flex-params (column, flex-start, left);
+
+                >p {
+                    margin-bottom: 5px;
+
+                    &.place-area {
+
+                        span {
+                            margin-left: 0;
+                            display: block;
+                        }
+                    }
+                }
+
+                h2 {
+                    color: $link_color;
+                    @include font-params (400, 28px, 36px, 0.016em);
+                    margin-bottom: 8px;
+                }
+
+                .statistic {
+                    display: grid;
+                    grid-template-columns: 191px 120px;
+                    margin-bottom: 19px;
+                    padding: 0;
+
+                    >div {
+                        @include flex-params (row, flex-start, center);
+                        color: $link_color;
+                        margin-bottom: 23px;
+                        grid-column: 1;
+                        grid-row: 1;
+
+
+                        &:nth-child(2) {
+                            width: 311px;
+                            margin-bottom: 0;
+                            grid-column: 1 / span 2;
+                            grid-row: 2 / span 2;
+                        }
+
+                        &:last-child {
+                            grid-column: 2;
+                            justify-content: space-between;
+                        }
+
+                        p {
+                            @include font-params (400, 16px, 22px, 0.05em);
+                        }
+
+                        .rating-wrapper {
+                            justify-content: space-between;
+
+
+                            .rating {
+                                @include font-params (900, 16px, 22px, 0.05em);
+                                margin-right: 4px;
+                                width: 75px;
+                                text-align: end;
+                            }
+
+                            .rating-count {
+                                font-family: 'Days One', sans-serif;
+                                @include font-params (400, 48px, 61px, 0.016em);
+                                color: #FC8000;
+                                margin-right: 9px;
+                            }
+                        }
+
+                        .show-on-map {
+                            margin-right: 0;
+                        }
+                    }
+                }
+
+                .place-cart_text {
+                    margin-bottom: 15px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: -moz-box;
+                    display: -webkit-box;
+                    line-clamp: 12;
+                    box-orient: vertical;
+                    -moz-box-orient: vertical;
+                    -webkit-line-clamp: 12;
+                    -webkit-box-orient: vertical;
+
+                    &.full-text {
+                        overflow: auto;
+                        display: block;
+                    }
+                }
+
+                .read-more {
+                    @include font-params (900, 16px, 22px, 0.05em);
+                    text-decoration: underline;
+                    margin-bottom: 22px;
+                    text-align: left;
+                    color: $link_color;
+                }
+
+                .additional-info {
+                    padding: 10px;
+                    background: #EDF0F7;
+                    border-radius: 10px;
+                    margin-bottom: 19px;
+
+                    >div {
+                        &.info {
+                            margin-bottom: 10px;
+                            flex-direction: column;
+
+                            .avg-check {
+                                @include font-params (400, 36px, 46px, 0.016em);
+                                margin-bottom: 5px;
+                                text-align: center;
+
+                            }
+
+                            .to-favorite {
+                                align-self: flex-start;
+                                padding-left: 35px;
+                                margin-bottom: 5px;
+                            }
+                        }
+                    }
+                }
+
+                .place-cart__footer {
+                    >button {
+                        margin: auto;
+                    }
+
+                    div {
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        .place-cart__terms {
+            @include block-pos-mobile;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 0;
+            color: #221F63;
+
+            h2 {
+                @include font-params (400, 24px, 31px, 0.016em);
+                margin-bottom: 15px;
+            }
+
+            >div {
+                width: 100%;
+                @include flex-params (column, space-between, center);
+
+                >div {
+                    margin-bottom: 15px;
+                    width: 100%;
+
+                    &:nth-child(2) {
+                        p {
+                            text-align: center;
+                        }
+                    }
+                }
+
+                h3 {
+                    font-family: 'Days One', sans-serif;
+                    @include font-params (400, 20px, 25px, 0.016em);
+                    margin-bottom: 5px;
+                    text-align: center;
+                    color: #00A5FF;
+                }
+
+                p {
+                    @include font-params (400, 16px, 22px, 0.05em);
+                    width: 100%;
+                }
+            }
+        }
+
+        .place-cart__rates {
+            @include block-pos-mobile;
+            flex-direction: column;
+            align-items: center;
+            padding: 5px 0 37px;
+
+            h2 {
+                @include font-params (400, 24px, 31px, 0.016em);
+                margin-bottom: 20px;
+            }
+
+            >div {
+                @include flex-params (column, space-between, flex-start);
+
+                div {
+                    margin-right: 0;
+                    margin-bottom: 12px;
+
+                    &:last-child {
+                        margin-right: 0;
+                    }
+
+                    h3 {
+                        width: 271px;
+                    }
+                }
+            }
+        }
+
+        .place-cart__stocking {
+            @include flex-params (column, flex-start, center);
+            color: $link_color;
+
+            h2 {
+                margin-bottom: 43px;
+                @include font-params (400, 40px, 51px, 0.016em);
+            }
+
+            >div {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+
+                .stocking_table {
+                    @include flex-params (column, flex-start, center);
+                    margin-bottom: 31px;
+
+                    select {
+                        cursor: pointer;
+                        outline: none;
+                        font-family: 'Days One', sans-serif;
+                        text-decoration: underline;
+                        border: none;
+                        background: transparent;
+                        @include font-params (700, 18px, 25px, 0.05em);
+                        color: $link_color;
+                        margin-bottom: 23px;
+                    }
+
+                    >button {
+                        margin-bottom: 0;
+                    }
+                }
+
+                .add-terms {
+                    padding: 21.5px 20px;
+                    max-width: 311px;
+                    margin: auto;
+
+                    h3 {
+                        font-family: 'Days One', sans-serif;
+                        @include font-params (400, 20px, 25px, 0.016em);
+                        color: #221F63;
+                        margin-bottom: 10px;
+                    }
+
+                    p {
+                        @include font-params (400, 16px, 22px, 0.05em);
+                    }
+                }
+            }
+        }
+
+        .place-cart__reviews {
+            flex-direction: column;
+            padding: 20px 0 99px;
+            @include block-pos-mobile;
+            position: relative;
+
+            .reviews_title {
+                display: grid;
+                grid-template-columns: 311px;
+                margin-bottom: 16px;
+                text-align: center;
+                width: 100%;
+
+                div {
+                    @include flex-params (row, center, center);
+                    grid-row: 2;
+                    width: 100%;
+
+                    .filter-arrow {
+                        width: 24px;
+                        height: 24px;
+                        margin-right: 10px;
+
+                        &.down {
+                            transform: rotate(180deg);
+                        }
+                    }
+
+                    p {
+                        font-family: 'Days One', sans-serif;
+                        @include font-params (400, 18px, 23px, 0.016em);
+                        color: #1A1A1A;
+                        text-decoration: underline;
+                    }
+                }
+
+                h2 {
+                    @include font-params (400, 24px, 31px, 0.016em);
+                    color: $link_color;
+                    margin-left: 0;
+                    width: 100%;
+                    grid-row: 1;
+                    margin-bottom: 8px;
+                }
+
+                >button {
+                    position: absolute;
+                    bottom: 20px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 205px;
+                    height: 63px;
+                    background-color: #00A5FF;
+                    border-radius: 10px;
+                    color: #fff;
+                    @include font-params (700, 18px, 25px, 0.05em);
+                }
+            }
+
+            .reviews__wrapper {
+                flex-wrap: wrap;
+                @include flex-params (row, space-between, center);
+                margin-bottom: 16px;
+
+                .review__container {
+                    display: flex;
+                    max-width: 634px;
+                    max-height: 100%;
+                    margin-bottom: 0;
+
+                    .user-photo {
+                        margin-right: 0;
+                        margin-bottom: 21px;
+
+                        img {
+                            width: 100%;
+                            height: 260px;
+                            object-fit: cover;
+                        }
+                    }
+
+
+                    .review__details {
+                        text-align: left;
+                    }
+
+                    .review-text {
+                        margin: 4px 0 10px;
+                    }
+
+                    p {
+                        @include font-params (400, 16px, 22px, 0.05em);
+                        color: #1A1A1A;
+
+                        &.user-name {
+                            display: flex;
+                            justify-content: space-between;
+                            font-family: 'Days One', sans-serif;
+                            @include font-params (400, 20px, 25px, 0.016em);
+                            margin-bottom: 12px;
+
+                            span {
+                                @include font-params (400, 20px, 27px, 0.016em);
+                                margin-left: 10px;
+                            }
+                        }
+                    }
+
+                    .details__footer {
+                        display: flex;
+                        justify-content: space-between;
+
+                        >div {
+                            display: flex;
+
+                            .likes-count {
+                                @include font-params (900, 16px, 22px, 0.05em);
+                                margin-right: 10px;
+                                color: $link_color;
+
+                                &::before {
+                                    content: '';
+                                    display: inline-block;
+                                    width: 24px;
+                                    height: 24px;
+                                    vertical-align: middle;
+                                    margin-right: 5px;
+                                }
+                            }
+
+                            .comment-count {
+                                @include font-params (900, 16px, 22px, 0.05em);
+                                color: $link_color;
+                                text-decoration: none;
+
+                                &::before {
+                                    content: '';
+                                    display: inline-block;
+                                    width: 24px;
+                                    height: 24px;
+                                    vertical-align: middle;
+                                    margin-right: 5px;
+                                }
+                            }
+                        }
+
+                        >p {
+                            @include font-params (900, 16px, 22px, 0.05em);
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            }
+
+            .show-more {
+                height: 63px;
+                width: 205px;
+                margin: auto;
+                background: #FC8000;
+                border-radius: 10px;
+                color: #fff;
+                @include font-params (700, 18px, 25px, 0.05em);
+            }
+
+            .mobile-slider {
+                .slick-slider {
+                    width: 311px;
+                }
+
+                .slick-list {
+                    width: 311px;
+                    height: 100%;
+                }
+            }
+        }
+    }
+}
