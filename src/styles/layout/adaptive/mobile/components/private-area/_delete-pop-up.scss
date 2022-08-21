@@ -1,0 +1,46 @@
+@media only screen and (max-width: 1023px) and (min-width: 311px) {
+    .apply-delete_pop-up {
+        overflow: visible;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -30%);
+        width: 291px;
+        height: 203px;
+        background-color: #fff;
+        border-radius: 8px;
+        z-index: 15;
+        padding: 20px;
+
+        h2 {
+            @include font-params (800, 20px, 30px, 1);
+            margin-bottom: 15px;
+            font-family: 'Nunito Sans', sans-serif;
+            color: #334253;
+        }
+
+        p {
+            @include font-params (400, 11px, 16px, 1);
+            color: #67727E;
+            margin-bottom: 20px;
+        }
+
+        >div {
+            display: flex;
+
+            button {
+                width: 110px;
+                height: 40px;
+                color: #fff;
+                background-color: #FC8000;
+                border-radius: 10px;
+                @include font-params (800, 11px, 16px, 1);
+
+                &:first-child {
+                    background-color: #A0ABC0;
+                    margin-right: 14px;
+                }
+            }
+        }
+    }
+}

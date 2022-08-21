@@ -15,7 +15,7 @@ class FishingPlace extends React.Component {
                         </div>
                         <div className='fishing-place__desc'>
                             <h3>{place.title}</h3>
-                            <p>{place.shortDesc}</p>
+                            <p>{place.description}</p>
                             <h4>{place.region}</h4>
                             <div className='desc_footer'>
                                 <p className='likes-count'>{place.likesCount}</p>
@@ -23,7 +23,7 @@ class FishingPlace extends React.Component {
                                     <p className='rating'>Средняя оценка</p>
                                     <p className='rating-count'>{place.rating}</p>
                                 </div>
-                                {innerWidth > 1320 && <button className={`show-on-map ${!filterState ? 'show' : ''}`}>Показать на карте</button>}
+                                {innerWidth >= 1320 && <button className={`show-on-map ${!filterState ? 'show' : ''}`}>Показать на карте</button>}
                             </div>
                         </div>
                         <div className='fishing-place__types'>
@@ -34,7 +34,7 @@ class FishingPlace extends React.Component {
                             <Link to={`/places/${place.path}`}>Подробнее</Link>
                             <p className='work-time'>Время ловли<span>{place.workTime}</span></p>
                             <p className='price'>от {place.price} ₽</p>
-                            <button className={`show-on-map ${filterState ? 'show' : ''}`}>Показать на карте</button>
+                            <button className={`show-on-map ${filterState || innerWidth < 1320 ? 'show' : ''}`}>Показать на карте</button>
                         </div>
                     </div>
                 </div>

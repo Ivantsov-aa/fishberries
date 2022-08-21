@@ -92,13 +92,10 @@
             &.fishing-place__details {
                 margin-right: 0;
                 align-items: center;
-
+                max-width: 279px;
+                
                 a {
-                    background-color: #FC8000;
-                    border-radius: 10px;
-                    color: #fff;
-                    padding: 19px 28px;
-                    @include font-params (700, 18px, 25px, 0.05em);
+                    width: 100%;
                 }
 
                 .work-time {

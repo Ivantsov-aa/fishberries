@@ -46,7 +46,7 @@ const navBar = [
 
 class NavBar extends React.Component {
     render() {
-        const { location, authUser } = this.props;
+        const { location, authUser, handleHamburgerButtonClick } = this.props;
         const currentLocation = location.split('/').pop();
 
         return (
@@ -55,6 +55,7 @@ class NavBar extends React.Component {
                     {navBar.map((nav, i) => (
                         <Link
                             to={`/profile/${authUser.userId}/${nav.value}`}
+                            onClick={handleHamburgerButtonClick}
                             key={i}
                         ><li
                             className={`${nav.value} ${nav.value === currentLocation ? 'active' : ''}`}

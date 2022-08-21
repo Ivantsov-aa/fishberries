@@ -1,0 +1,91 @@
+@media only screen and (max-width: 600px) and (min-width: 311px) {
+    .authorization-page {
+        @include block-pos-mobile;
+        padding-top: 60px;
+        text-align: center;
+    
+        h1 {
+            @include font-params (400, 20px, 130%, 0.016em);
+            margin-bottom: 0;
+        }
+    
+        p {
+            @include font-params (400, 11px, 16px, 0.05em);
+            margin-bottom: 34px;
+    
+            a {
+                @include font-params (800, 11px, 16px, 0.05em);
+            }
+        }
+    
+        label {
+            @include font-params (400, 11px, 16px, 0.01em);
+            margin-bottom: 10px;
+    
+            &.password {
+                p {
+                    top: 35px;
+                    right: 17px;
+                    width: 24px;
+                    height: 16px;
+                    background-size: cover;
+                    cursor: pointer;
+    
+                    &.active {
+                        background-size: cover;
+                    }
+                }
+            }
+    
+    
+            input {
+                @include font-params (400, 16px, 24px, 0.01em);
+                color: #717D96;
+                width: 100%;
+                padding: 16px;
+                display: block;
+                border: none;
+                border-bottom: 2px solid #A0ABC0;
+                background: none;
+    
+                &::placeholder {
+                    color: #717D96;
+                }
+    
+                &.valid {
+                    background-position-x: 30px;
+                    padding-left: 70px;
+                }
+    
+                &:invalid {
+                    background: none;
+                }
+            }
+        }
+    
+        .error-message {
+            position: absolute;
+            transform: translateY(-21%);
+
+            &.error-auth {
+                transform: translateY(-50%);
+            }
+    
+            p {
+                color: #DB0BC0;
+                @include font-params (700, 11px, 16px, 0.01em);
+            }
+    
+            &:last-child {
+                transform: translateY(-20px);
+                position: relative;
+            }
+        }
+    
+        input[type='submit'] {
+            width: 200px;
+            height: 48px;
+            @include font-params (700, 15px, 20px, 0.01em);
+        }
+    }
+}

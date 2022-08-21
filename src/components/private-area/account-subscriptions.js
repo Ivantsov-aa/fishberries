@@ -56,7 +56,7 @@ class AccountSubscriptions extends React.Component {
                     </div>
                     <h3>Детали подписки</h3>
                     <div className='account-details'>
-                        <div>
+                        <div className='subscription_info'>
                             <p>ID #{authUser.userId}</p>
                             <p>Дата подписки: <span>{dateRegistration}</span></p>
                             <p>Дата продления: <span>{renewalRegistration}</span></p>

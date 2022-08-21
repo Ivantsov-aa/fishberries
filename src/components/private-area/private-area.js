@@ -1,14 +1,27 @@
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
+import NavBar from './navbar';
 
 class PrivateArea extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            stateHamburgerMenu: false
+        }
+    };
+
+    handleHamburgerButtonClick = () => {
+        this.setState({ stateHamburgerMenu: !this.state.stateHamburgerMenu });
+    }
+
     handleClickLogOut = login => {
         const { handleLogOut } = this.props;
         handleLogOut(login);
     }
 
     render() {
-        const { location, authUser, stateDeletePopUp } = this.props;
+        const { stateHamburgerMenu } = this.state;
+        const { location, authUser, stateDeletePopUp, innerWidth } = this.props;
         const currentLocation = location.split('/').pop();
 
         return (
@@ -23,6 +36,18 @@ class PrivateArea extends React.Component {
                             <img src='/images/header/main-logo.svg' alt='logo' />
                             <h2>Fish<span>berries</span></h2>
                         </Link>
+                        {innerWidth < 1024 &&
+                            <>
+                                <button className={`hamburger-button ${stateHamburgerMenu ? 'open' : ''}`} onClick={this.handleHamburgerButtonClick}>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </button>
+                                <div className={`hamburger-menu ${stateHamburgerMenu ? 'open' : ''}`}>
+                                    <NavBar handleHamburgerButtonClick={this.handleHamburgerButtonClick} location={location} authUser={authUser} />
+                                </div>
+                            </>
+                        }
                     </div>
                 </header>
                 <main className='personal-area__container'>

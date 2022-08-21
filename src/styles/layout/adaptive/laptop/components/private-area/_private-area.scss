@@ -1,0 +1,396 @@
+@media only screen and (max-width: 1320px) and (min-width: 1024px) {
+    .personal-area__wrapper {
+        header {
+            border-bottom: 1px solid #221F63;
+            margin-bottom: 36px;
+
+            .header__container {
+                @include block-pos-laptop;
+            }
+        }
+
+        .personal-area__container {
+            @include block-pos-laptop;
+
+            .personal-area__main {
+                @include block-pos-laptop;
+
+                nav {
+                    padding: 20px 12px;
+                }
+
+                section {
+                    width: 100%;
+                }
+
+                .main__content {
+                    border: 1px solid #CBD2E0;
+                    border-radius: 5px;
+                    padding: 45px 35px;
+                    width: 648px;
+
+                    p {
+                        @include font-params (400, 18px, 25px, 0.016em);
+                        color: #1A202C;
+
+                        &.press-to-edit {
+                            margin-bottom: 10px;
+                        }
+
+                        a {
+                            @include font-params (800, 18px, 25px, 0.016em);
+                            color: #221F63;
+                        }
+                    }
+
+
+                    h2,
+                    h3 {
+                        font-family: 'Days One', sans-serif;
+                        @include font-params (400, 32px, 48px, 0.016em);
+                        color: $link_color;
+                    }
+
+                    h3 {
+                        @include font-params (400, 24px, 48px, 0.016em);
+                        margin-bottom: 10px;
+                    }
+
+                    .account-details {
+
+                        >div {
+                            padding: 44px 15px;
+                            width: 288px;
+                            margin-right: 20px;
+
+                            &.subscription_info {
+                                margin-right: 0;
+                            }
+                        }
+                    }
+
+                    .user-photo__caption {
+                        align-self: flex-start;
+                        @include font-params (400, 16px, 20px, 0.01em);
+                        color: #717D96;
+                        margin-bottom: 10px;
+                        text-align: left;
+
+                        &.upload {
+                            font-weight: 700;
+                        }
+                    }
+
+                    .user-photo__container {
+                        align-self: flex-start;
+                        @include flex-params (row, flex-start, center);
+                        margin-bottom: 30px;
+
+                        .user-photo {
+                            width: 112px;
+                            height: 112px;
+                            background-color: #F9F9FB;
+                            border: 1px solid #EFEFF5;
+                            border-radius: 4px;
+                            margin-right: 20px;
+
+                            label {
+                                display: block;
+                                width: 112px;
+                                height: 112px;
+                                cursor: pointer;
+
+                            }
+
+                            input {
+                                display: none;
+                                position: relative;
+                            }
+
+                            img {
+                                object-fit: cover;
+                                max-width: 112px;
+                                max-height: 112px;
+                            }
+                        }
+
+                        .delete-photo {
+                            width: 36px;
+                            height: 36px;
+                            background-size: cover;
+                        }
+                    }
+
+                    .edit-user__form {
+                        label {
+                            text-align: left;
+                            @include font-params (400, 16px, 20px, 0.01em);
+                            color: #717D96;
+                            margin-bottom: 30px;
+                            display: block;
+                            position: relative;
+
+                            &.password {
+
+                                input[type='password'] {
+                                    color: #FC8000;
+                                }
+
+                                p {
+                                    position: absolute;
+                                    top: 50px;
+                                    right: 20px;
+                                    width: 30px;
+                                    height: 20px;
+                                    background-size: cover;
+                                    cursor: pointer;
+
+                                    &.active {
+                                        background-size: cover;
+                                    }
+                                }
+                            }
+
+
+                            input {
+                                @include font-params (400, 20px, 25px, 0.01em);
+                                color: #717D96;
+                                width: 100%;
+                                padding: 30px;
+                                display: block;
+                                border: none;
+                                border-bottom: 2px solid #A0ABC0;
+                                background: none;
+
+                                &::placeholder {
+                                    color: #717D96;
+                                }
+
+                                &.valid {
+                                    background-position-x: 30px;
+                                    padding-left: 70px;
+                                }
+
+                                &:invalid {
+                                    background: none;
+                                }
+                            }
+                        }
+
+                        .error-message {
+                            position: absolute;
+                            transform: translateY(-115%);
+
+                            p {
+                                color: #DB0BC0;
+                                @include font-params (700, 18px, 22px, 0.01em);
+                            }
+                        }
+
+                        input[type='file'] {
+                            width: 168px;
+                            height: 168px;
+                        }
+
+                        input[type='submit'] {
+                            display: block;
+                            background-color: #FC8000;
+                            width: 225px;
+                            height: 63px;
+                            margin: auto;
+                            color: #fff;
+                            border: none;
+                            border-radius: 10px;
+                            box-shadow: inset 0px 0px 8px rgba(0, 0, 0, 0.04);
+                            @include font-params (700, 20px, 25px, 0.01em);
+                            margin-bottom: 20px;
+                            cursor: pointer;
+                        }
+                    }
+
+                    .places-table__wrapper {
+                        * {
+                            &::-webkit-scrollbar {
+                                width: 23px;
+                                border-left: 1px solid #CBD2E0;
+                            }
+
+                            &::-webkit-scrollbar-track {
+                                background: #fff;
+                                border-left: 1px solid #CBD2E0;
+                            }
+
+                            &::-webkit-scrollbar-thumb {
+                                background-color: #CBD2E0;
+                            }
+
+                            &::-webkit-scrollbar-button:single-button {
+                                background-color: #fff;
+                                display: block;
+                                height: 23px;
+                                width: 23px;
+                            }
+
+                            &::-webkit-scrollbar-button:single-button:vertical:decrement {
+                                background-position: 0 5px;
+                            }
+
+                            &::-webkit-scrollbar-button:single-button:vertical:increment {
+                                background-position: 0 -5px;
+                            }
+                        }
+
+                        .places-table {
+                            overflow-y: scroll;
+                            height: 167px;
+                            border: 1px solid #CBD2E0;
+                            width: 578px;
+                            z-index: 0;
+                            margin-top: 55px;
+                            scrollbar-color: #fff;
+
+                            table {
+                                width: 100%;
+                                border-collapse: collapse;
+
+                                tr {
+                                    height: 55px;
+
+                                    &:last-child {
+                                        td {
+                                            border: none;
+                                        }
+                                    }
+                                }
+
+                                td {
+                                    text-align: center;
+                                    @include font-params (400, 14px, 19px, 0.016em);
+                                    color: #1A202C;
+                                    border-bottom: 1px solid #CBD2E0;
+
+                                    &:first-child {
+                                        text-align: left;
+                                        padding-left: 33px;
+                                    }
+
+                                    &:last-child {
+                                        padding-right: 33px;
+                                    }
+                                }
+
+                                thead {
+                                    position: absolute;
+                                    left: 0;
+                                    height: 55px;
+                                    width: 578px;
+                                    top: -55px;
+                                    border: 1px solid #CBD2E0;
+                                    border-radius: 5px 5px 0px 0px;
+
+                                    tr {
+                                        display: flex;
+                                        width: 100%;
+
+                                        th {
+                                            border-radius: 5px 5px 0px 0px;
+                                            display: block;
+                                            height: 100%;
+                                            flex-grow: 1;
+                                            background-color: #fff;
+                                            @include font-params (400, 14px, 19px, 0.016em);
+                                            border-bottom: 1px solid #CBD2E0;
+                                            color: #1A202C;
+                                            background-color: #fff;
+
+                                            &:first-child {
+                                                flex-grow: 2;
+                                            }
+
+                                            &:last-child {
+                                                p {
+                                                    padding-left: 40px;
+                                                }
+                                            }
+
+                                            p {
+                                                padding-left: 33px;
+                                                padding-top: 18px;
+                                                position: absolute;
+                                                @include font-params (400, 14px, 19px, 0.016em);
+                                                color: #1A202C;
+
+                                            }
+                                        }
+                                    }
+                                }
+
+                                tbody {
+                                    overflow-y: scroll;
+                                    height: 165px;
+
+                                    button {
+                                        background-color: #00D2D0;
+                                        width: 124px;
+                                        height: 39px;
+                                        @include font-params (700, 14px, 19px, 0.016em);
+                                        color: #fff;
+
+                                        &:disabled {
+                                            background-color: #fff;
+                                            border: 1px solid #CBD2E0;
+                                            color: #A0ABC0;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .fishing-place__wrapper {
+                    .fishing-place__cart {
+                        &.active {
+                            .fishing-place__desc {
+                                max-width: 588px;
+                            }
+
+                            .fishing-place__types {
+                                max-width: 100%;
+                            }
+                        
+                            .fishing-place__details {
+                                >p {
+                                    text-align: center;
+                                }
+
+                                button {
+                                    width: 198px;
+                                }
+
+                                a {
+                                    margin-left: 43px;
+                                }
+                            }
+
+                        }
+
+                        .show-on-map {
+                            display: flex;
+
+                            &::after {
+                                content: '';
+                                display: block;
+                                width: 48px;
+                                height: 44px;
+                                background: url('../../../../../../../public/images/main/icon-map.svg') no-repeat center;
+                                background-size: contain;
+                                margin-left: 10px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

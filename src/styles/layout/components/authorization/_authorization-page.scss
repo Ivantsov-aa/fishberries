@@ -5,7 +5,7 @@
     text-align: center;
 
     h1 {
-        @include font-params (400, 50px, 61px, 0.0016em);
+        @include font-params (400, 50px, 61px, 0.016em);
         font-family: 'Days One', sans-serif;
         color: #051951;
         margin-bottom: 10px;

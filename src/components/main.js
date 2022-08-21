@@ -633,7 +633,9 @@ class Main extends React.Component {
     }
 
     handleClickOutside(event) {
-        if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
+        const { innerWidth } = this.props;
+
+        if (innerWidth < 1024 && this.wrapperRef && !this.wrapperRef.contains(event.target)) {
             this.setState({ filterState: false });
         }
     }
@@ -644,7 +646,7 @@ class Main extends React.Component {
 
         return (
             <>
-                <main className={filterState ? 'disable' : ''}>
+                <main className={filterState && innerWidth < 1024 ? 'disable' : ''}>
                     <div className='main__title-wrapper'>
                         <section className='main__title'>
                             <h1>
@@ -675,10 +677,10 @@ class Main extends React.Component {
                         <div className='fishing-places__list'>
                             <section className={`fishing-places__filter ${filterState ? 'show' : ''}`} ref={innerWidth < 1024 ? this.setWrapperRef : null}>
                                 {innerWidth < 1024 && <button className='filter_title' onClick={this.handleFilterClick}>Фильтр</button>}
-                                {filterState && <FilterPlaces filterArray={filterArray} handleSubcategoriesClick={this.handleSubcategoriesClick} />}
+                                {filterState && <FilterPlaces innerWidth={innerWidth} filterArray={filterArray} handleSubcategoriesClick={this.handleSubcategoriesClick} />}
                             </section>
                             {innerWidth >= 1024 ?
-                                <div>
+                                <div className='fishing-places__wrapper'>
                                     <FishingPlace filterState={filterState} arrayPlaces={arrayPlaces} innerWidth={innerWidth} />
                                 </div>
                                 :

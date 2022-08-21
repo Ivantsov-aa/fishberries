@@ -17,8 +17,6 @@ const arrayMonth = [
     'декабрь'
 ];
 
-const arrayDays = [];
-
 function daysInMonth(month, year) {
     return new Date(year, month, 0).getDate();
 }
@@ -30,11 +28,14 @@ class CalendarMobile extends React.Component {
             date: null,
             currentYearIndex: null,
             currentMonthIndex: null,
-            currentDayIndex: null
+            currentDayIndex: null,
+            arrayDays: []
         }
     }
 
     componentDidMount() {
+        const { arrayDays } = this.state;
+
         const date = new Date();
         const currentYear = date.getFullYear();
         const currentMonth = date.getMonth() + 1;
@@ -70,9 +71,36 @@ class CalendarMobile extends React.Component {
         this.setState({ currentYearIndex: indexYear, currentMonthIndex: indexMonth, currentDayIndex: indexDay });
     }
 
-    render() {
-        const { currentYearIndex, currentMonthIndex, currentDayIndex } = this.state;
+    handleMonthClick = e => {
+        const arrayDays = [];
+        const { currentYearIndex } = this.state;
+        const { value } = e.target.dataset;
 
+        const month = [];
+        month['январь'] = '1';
+        month['февраль'] = '2';
+        month['март'] = '3';
+        month['апрель'] = '4';
+        month['май'] = '5';
+        month['июнь'] = '6';
+        month['июль'] = '7';
+        month['август'] = '8';
+        month['сентябрь'] = '9';
+        month['октябрь'] = '10';
+        month['ноябрь'] = '11';
+        month['декабрь'] = '12';
+        const eventMonth = month[value];
+
+        const daysQuantity = daysInMonth(eventMonth, arrayYears[currentYearIndex]);
+        for (let i = 1; i <= daysQuantity; i++) {
+            arrayDays.push(i);
+        };
+
+        this.setState({ arrayDays: arrayDays });
+    }
+
+    render() {
+        const { arrayDays, currentYearIndex, currentMonthIndex, currentDayIndex } = this.state;
 
         const settingsYear = {
             className: "center",
@@ -82,7 +110,9 @@ class CalendarMobile extends React.Component {
             infinite: true,
             centerPadding: '-3px',
             slidesToShow: 5,
-            speed: 500,
+            slidesToScroll: 1,
+            speed: 100,
+            swipeToSlide: true,
             focusOnSelect: true
         };
 
@@ -94,7 +124,8 @@ class CalendarMobile extends React.Component {
             infinite: true,
             centerPadding: '15px',
             slidesToShow: 3,
-            speed: 500,
+            speed: 100,
+            swipeToSlide: true,
             focusOnSelect: true
         };
 
@@ -106,7 +137,8 @@ class CalendarMobile extends React.Component {
             infinite: true,
             centerPadding: '8px',
             slidesToShow: 5,
-            speed: 500,
+            speed: 100,
+            swipeToSlide: true,
             focusOnSelect: true
         };
 
@@ -115,8 +147,8 @@ class CalendarMobile extends React.Component {
                 <div className='day'>
                     {currentDayIndex &&
                         <Slider {...settingsDay} initialSlide={currentDayIndex}>
-                            {arrayDays.map((month, i) => (
-                                <p className='month' key={i}>{month}</p>
+                            {arrayDays.map((day, i) => (
+                                <p className='day' data-value={day} key={i}>{day}</p>
                             ))}
                         </Slider>
                     }
@@ -125,7 +157,7 @@ class CalendarMobile extends React.Component {
                     {currentMonthIndex &&
                         <Slider {...settingsMonth} initialSlide={currentMonthIndex}>
                             {arrayMonth.map((month, i) => (
-                                <p className='month' key={i}>{month}</p>
+                                <p className='month' data-value={month} onClick={this.handleMonthClick} key={i}>{month}</p>
                             ))}
                         </Slider>
                     }
@@ -134,7 +166,7 @@ class CalendarMobile extends React.Component {
                     {currentYearIndex &&
                         <Slider {...settingsYear} initialSlide={currentYearIndex} >
                             {arrayYears.map((year, i) => (
-                                <p key={i}>{year}</p>
+                                <p className='year' data-value={year} key={i}>{year}</p>
                             ))}
                         </Slider>
                     }

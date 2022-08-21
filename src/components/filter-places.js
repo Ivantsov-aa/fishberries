@@ -3,7 +3,8 @@ import React from "react"
 class FilterPlaces extends React.Component {
 
     componentDidMount() {
-        document.body.style.overflow = 'hidden';
+        const { innerWidth } = this.props;
+        document.body.style.overflow = innerWidth < 1024 ? 'hidden' : 'scroll';
     }
 
     componentWillUnmount() {

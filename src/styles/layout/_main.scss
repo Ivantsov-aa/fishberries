@@ -117,13 +117,17 @@ main {
             }
         }
 
+        .fishing-places__wrapper {
+            width: 100%;
+        }
+        
         .fishing-places__list {
             text-align: start;
             @include flex-params (row, space-between, flex-start);
 
             .fishing-places__filter {
                 display: none;
-                padding: 15px;
+                padding: 16.5px 10px 25px 10px;
                 border: 1px solid #CBD2E0;
                 border-radius: 10px;
                 margin-right: 20px;

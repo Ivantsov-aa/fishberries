@@ -118,6 +118,7 @@ const App = () => {
         {isLogged &&
           <Route path='/profile/:id/*' element={
             <PrivateArea
+              innerWidth={innerWidth}
               location={location.pathname}
               authUser={authUser}
               stateDeletePopUp={stateDeletePopUp}
@@ -128,7 +129,7 @@ const App = () => {
             <Route path='subscriptions' element={<AccountSubscriptions location={location.pathname} authUser={authUser} />} />
             <Route path='edit-profile' element={<EditProfilePage location={location.pathname} navigate={navigate} authUser={authUser} handleNewPersonalInfo={handleNewPersonalInfo} />} />
             <Route path='edit-places' element={<EditPlacesPage location={location.pathname} navigate={navigate} authUser={authUser} handleNewPersonalInfo={handleNewPersonalInfo} />} />
-            <Route path='favorite' element={<FavoritePage authUser={authUser} arrayPlaces={arrayPlaces} stateDeletePopUp={stateDeletePopUp} openDeletePopUp={openDeletePopUp} />} />
+            <Route path='favorite' element={<FavoritePage innerWidth={innerWidth} authUser={authUser} arrayPlaces={arrayPlaces} stateDeletePopUp={stateDeletePopUp} openDeletePopUp={openDeletePopUp} />} />
           </Route>
         }
       </Routes>

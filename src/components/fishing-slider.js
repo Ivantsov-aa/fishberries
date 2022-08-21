@@ -5,7 +5,7 @@ import Slider from 'react-slick';
 class FishingSlider extends React.Component {
 
     render() {
-        const { arrayPlaces } = this.props;
+        const { arrayPlaces, handleCartClick, openDeletePopUp } = this.props;
 
         const settingsForPlaceCart = {
             dots: true,
@@ -21,7 +21,8 @@ class FishingSlider extends React.Component {
                 <Slider {...settingsForPlaceCart}>
                     {arrayPlaces.map((place, i) => {
                         const arrayTypes = place.fishTypes.split(',');
-                        return <div className='fishing-place__wrapper' key={i}>
+                        return <div className={`fishing-place__wrapper ${place.selected ? 'open-delete-btn' : ''}`} data-value={place.path} onClick={handleCartClick && handleCartClick} key={i}>
+                            {place.selected && <button className='delete-button' data-value={place.path} onClick={openDeletePopUp}>Удалить</button>}
                             <div className='fishing-place__cart'>
                                 <div className='fishing-place__pic'>
                                     <img src={place.pic} alt='fishing-pic' />
